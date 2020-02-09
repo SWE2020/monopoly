@@ -1,0 +1,162 @@
+[
+  {
+    "Description": "You inherit £100",
+    "Action": "Bank pays player £100",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "You have won 2nd prize in a beauty contest, collect £20",
+    "Action": "Bank pays player £20",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Go back to Crapper Street",
+    "Action": "Player token moves backwards to Crapper Street",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Student loan refund. Collect £20",
+    "Action": "Bank pays player £20",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Bank error in your favour. Collect £200",
+    "Action": "Bank pays player £200",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Pay bill for text books of £100",
+    "Action": "Player pays £100 to the bank",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Mega late night taxi bill pay £50",
+    "Action": "Player pays £50 to the bank",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Advance to go",
+    "Action": "Player moves forwards to GO",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "From sale of Bitcoin you get £50",
+    "Action": "Bank pays player £50",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Pay a £10 fine or take opportunity knocks",
+    "Action": "If fine paid, player puts £10 on free parking",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Pay insurance fee of £50",
+    "Action": "Player puts £50 on free parking",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Savings bond matures, collect £100",
+    "Action": "Bank pays £100 to the player",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Go to jail. Do not pass GO, do not collect £200",
+    "Action": "As the card says",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Received interest on shares of £25",
+    "Action": "Bank pays player £25",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "It's your birthday. Collect £10 from each player",
+    "Action": "Player receives £10 from each player",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Get out of jail free",
+    "Action": "Retained by the player until needed. No resale or trade value",
+    "Card Type": "Pot luck"
+  },
+  {
+    "Description": "Bank pays you divided of £50",
+    "Action": "Bank pays player £50",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "You have won a lip sync battle. Collect £100",
+    "Action": "Bank pays player £100",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Advance to Turing Heights",
+    "Action": "Player token moves forwards to Turing Heights",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Advance to Han Xin Gardens. If you pass GO, collect £200",
+    "Action": "Player moves token",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Fined £15 for speeding",
+    "Action": "Player puts £15 on free parking",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Pay university fees of £150",
+    "Action": "Player pays £150 to the bank",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Take a trip to Hove station. If you pass GO collect £200",
+    "Action": "Player moves token",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Loan matures, collect £150",
+    "Action": "Bank pays £150 to the player",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "You are assessed for repairs, £40/house, £115/hotel",
+    "Action": "Player pays money to the bank",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Advance to GO",
+    "Action": "Player moves token",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "You are assessed for repairs, £25/house, £100/hotel",
+    "Action": "Player pays money to the bank",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Go back 3 spaces",
+    "Action": "Player moves token",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Advance to Skywalker Drive. If you pass GO collect £200",
+    "Action": "Player moves token",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Go to jail. Do not pass GO, do not collect £200",
+    "Action": "As the card says",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Drunk in charge of a skateboard. Fine £20",
+    "Action": "Player puts £20 on free parking",
+    "Card Type": "Opportunity knocks"
+  },
+  {
+    "Description": "Get out of jail free",
+    "Action": "Retained by the player until needed. No resale or trade value",
+    "Card Type": "Opportunity knocks"
+  }
+]
