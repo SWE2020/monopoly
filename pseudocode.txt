@@ -1,0 +1,126 @@
+class Player:
+
+	String token # Assigned when class is init 
+	location on Board # Go initially 
+	int cashCount # Initally 1500£
+	boolean isBank
+	Deck playerDeck 
+	boolean isJailed
+
+	getToken() # return player token
+	getCards() # return player deck 
+	useCard() # return card to board deck and give player's benefits. 
+	getLocation() # return location on board
+	get 
+	getCash() # return the amount of cash player has 
+	isPlayerBank() # true iff player is the bank 
+	movePlayer() # move character around board 
+	setJailed(): # Set jailed 
+
+
+
+class Dice: 
+
+	int diceOne 
+	int diceTwo
+	int doubleCount = 0
+
+	clearDice(): # set both dice to zero, double count set to false 
+	rollDice(): # generate random number for each dice. 
+	isDouble(): # true if both dice are the same value. doubleCount++
+	isJail(): # true if doubleCount is 3 
+
+
+class Board: 
+	
+	boardSpaces = [Go, Crapper Street, Pot Luck,Gangsters Paradise,Income Tax,Brighton Station,Weeping Angel,Opportunity Knocks,Potts Avenue,
+Nardole Drive,
+Jail/Just visiting,
+Skywalker Drive,
+Tesla Power Co,
+Wookie Hole,
+Rey Lane,
+Hove Station,
+Cooper Drive,
+Pot Luck,
+Wolowitz Street,
+Penny Lane,
+Free Parking,
+Yue Fei Square,
+Opportunity Knocks,
+Mulan Rouge,
+Han Xin Gardens,
+Falmer Station,
+Kirk Close,
+Picard Avenue,
+Edison Water,
+Crusher Creek,
+Go to Jail,
+Sirat Mews,
+Ghengis Crescent,
+Pot Luck,
+Ibis Close,
+Lewes Station,
+Opportunity Knocks,
+Hawking Way,
+Super Tax,
+Turing Heights]
+
+	players = [] # Max 6, min 2
+	potLuckDeck = []
+	oppKnocksDeck = [] 
+
+class BoardSpace: 
+
+	String _id = '' ## can be 'property', 'pot luck', 'opp knocks', 'free parking', 'jail', 
+
+	getId(): # returns the id of the BoardSpace object 
+
+class Deck:
+
+	List cardList = [] 
+
+	addCards(): # import from xls file
+	pickCard(): # take card, add to player deck 
+	removeCard(): # remove top card 
+	returnCard(): # at bottom 
+	shuffleCards(): # shuffle the deck of cards
+
+class Card:
+	
+	String name = ''
+	String desc = ''
+	String deckType = '' 
+
+class Bank: 
+
+	int cashCount = 50,000
+
+
+class Space:
+
+	int position # eg. 20
+	string name # eg. 'Go'
+
+
+class ActionSpace(Space):
+	int position
+	string name 
+	boolean canBeBought = false
+
+	getAction:
+		switch(name):
+			case 'Go':
+
+			case 'Pot Luck':
+
+			case 'Opportunity Knocks':
+
+			case 'Income Tax':
+
+			case 'Free Parking':
+
+			case 'Super Tax':
+
+class PropertySpace(Space):  
+	boolean canBeBought = true
