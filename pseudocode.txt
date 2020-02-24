@@ -1,3 +1,5 @@
+pseudocode
+
 class Player:
 
 	String token # Assigned when class is init 
