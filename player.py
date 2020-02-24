@@ -4,6 +4,7 @@ class Player:
     #initialize all
     def __init__(self):
         #input from player
+        self.playerName = ""
         #name of token piece
         self.tokenName = ""
         self.ankBalance = 0
