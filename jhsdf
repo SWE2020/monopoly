@@ -1,0 +1,43 @@
+# Assert that the correct position has been assigned
+        property_tile.get_position(), 1
+
+        # Assert that the correct name has been assigned
+        property_tile.get_name(), 'Property_Name'
+
+        # Assert that the correct action has not been assigned in property
+        self.assertIsNone(property_tile.get_action()
+
+        # Assert that the correct can_be_bought parameter has been assigned
+        self.assertTrue(property_tile.can_be_bought()
+
+        # Assert that correct cost as has been assigned
+        self.assertTrue(property_tile.get_cost(), 66
+
+        # Assert that the correct base rent has been assigned with no hotels and houses
+        property_tile.get_house_count(), 0
+        property_tile.get_hotel_count(), 0
+        property_tile.get_rent(), 100
+
+        # Assert that a house can be added to a property and the rent changes
+        property_tile.add_house()
+        property_tile.get_house_count()
+        property_tile.get_hotel_count()
+
+        # Assert that the rent increases with an increase of houses on the property
+        # (The property already has one house
+        property_tile.get_rent()
+
+        property_tile.add_house()  # Second house is added
+        property_tile.get_house_count()
+        property_tile.get_hotel_count()
+        property_tile.get_rent()
+
+        property_tile.add_house()  # Third house is added
+        property_tile.get_house_count()
+        property_tile.get_hotel_count()
+        property_tile.get_rent()
+
+        property_tile.add_house()  # Fourth house is added
+        property_tile.get_house_count()
+        property_tile.get_hotel_count()
+        property_tile.get_rent()

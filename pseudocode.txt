@@ -1,4 +1,4 @@
-pseudocode
+﻿pseudocode
 
 class Player:
 
@@ -95,20 +95,6 @@ class Card:
 	String deckType = '' 
 
 class Bank: 
-
-	int cashCount = 50,000
-
-
-class Space:
-
-	int position # eg. 20
-	string name # eg. 'Go'
-
-
-class ActionSpace(Space):
-	int position
-	string name 
-	boolean canBeBought = false
 
 	getAction:
 		switch(name):
