@@ -1,8 +1,8 @@
-import Property
+##import Property
 
 class Player:
     #initialize all
-    def __init__(self):
+    def __init__(self ):
         #input from player
         self.playerName = ""
         #name of token piece
@@ -14,59 +14,60 @@ class Player:
         self.propertiesOwned = []
         #holds an array of Property objects
         self.propertiesMortgaged = []
-        self.hasWon = false
-        self.inJail = false
+        self.hasWon = False
+        self.inJail = False
         jailTimeCount = 0
 
-    def getPlayerName():
+    def getPlayerName(self):
         return self.playerName
 
-    def setPlayerName(pname):
+    def setPlayerName(self, pname):
         self.playerName = pname
 
-    def getTokenName():
+    def getTokenName(self):
         return self.tokenName
 
-    def setTokenName(tname):
+    def setTokenName(self, tname):
         self.tokenName = tname
 
-    def getBankBalance():
+    def getBankBalance(self):
         return self.bankBalance
 
-    def setBankBalance(balance):
+    def setBankBalance(self, balance):
         self.bankBalance = balance
 
-    def getPosition():
+    def getPosition(self):
         return self.position
 
-    def setPosition(position):
+    def setPosition(self, position):
         self.position = position
 
-    def getJailTimeCount():
+    def getJailTimeCount(self):
         return self.jailTimeCount
 
-    def setJailTimeCount(jailTime):
+    def setJailTimeCount(self, jailTime):
         self.jailTimeCount = jailTime
 
-    def getHasWon():
+    def getHasWon(self):
         return self.hasWon
 
-    def setHasWon(hasWon):
-        self.hasWon = hasWon
+    def setHasWon(self):
+        self.hasWon = True
 
-    def getInJail():
+    def getInJail(self):
         return self.inJail
 
-    def setInJail(inJail):
-        self.inJail = inJail
+    def setInJail(self):
+        self.inJail = True
 
-    def getPropertiesOwned():
+    def getPropertiesOwned(self):
         return self.propertiesOwned
 
-    def setPropertiesOwned(propertiesOwned):
-
-    def getPropertiesMortgaged():
+    def setPropertiesOwned(self):
+        return True
+    def getPropertiesMortgaged(self):
         return self.propertiesMortgaged
 
-    def setPropertiesMortgaged(propertiesMortgaged):
+    def setPropertiesMortgaged(self):
+        return True
         
