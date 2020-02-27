@@ -2,9 +2,9 @@
 
 class Player:
     #initialize all
-    def __init__(self ):
+    def __init__(self, name, token):
         #input from player
-        self.playerName = ""
+        self.playerName = name
         #name of token piece
         self.tokenName = ""
         self.bankBalance = 0
