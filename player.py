@@ -1,4 +1,4 @@
-##import Property
+#import Property
 
 class Player:
     #initialize all
@@ -9,6 +9,7 @@ class Player:
         self.tokenName = ""
         self.bankBalance = 0
         #position on board in regards to board array
+
         self.position = 0
         #holds an array of Property objects
         self.propertiesOwned = []
@@ -76,3 +77,4 @@ class Player:
     def setPropertiesMortgaged(self):
         return True
         
+
