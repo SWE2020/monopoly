@@ -9,7 +9,7 @@ class Player:
         self.tokenName = ""
         self.bankBalance = 0
         #position on board in regards to board array
-        self.position = [0,0]
+        self.position = 0
         #holds an array of Property objects
         self.propertiesOwned = []
         #holds an array of Property objects
@@ -61,7 +61,12 @@ class Player:
         self.inJail = True
 
     def getPropertiesOwned(self):
-        return self.propertiesOwned
+        # Changed this so that we could get the names ofo the properties owned
+        #return self.propertiesOwned
+        empty = []
+        for i in self.propertiesOwned:
+            empty.append(i.get_name())
+        return empty
 
     def setPropertiesOwned(self):
         return True

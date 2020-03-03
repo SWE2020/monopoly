@@ -42,4 +42,4 @@ class Board:
         return self._tile_list
 
     def get_tile_at(self, int):
-        return self._tile_list
+        return self._tile_list[int]

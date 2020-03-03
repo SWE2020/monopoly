@@ -1,3 +1,5 @@
+from random import random, randint
+
 from player import Player
 from board import Board
 
@@ -41,9 +43,21 @@ class Monopoly:
     def __init__(self, players):
         self._players = players
         self._turns = TurnManager(players)
+        self._board = Board()
+        self._board.populate_board()
+
+        # Decks of Cards
+
+        self._is_over = False
+        self._winner = None
+
+        self._action = None
 
     def get_players(self):
         return self._players
+
+    def get_board(self):
+        return self._board
 
     def get_player(self, key):
         return self._players[key]
@@ -56,6 +70,9 @@ class Monopoly:
 
     def get_turns(self):
         return self._turns
+
+    def is_over(self):
+        return self._is_over
 
     ## Is over for player in players, if playe has won: self.winner = player, self.isover = true
     #       return self._is over
@@ -88,10 +105,38 @@ if __name__ == "__main__":
         name = input("Please enter your name: ")
         token_list.remove(token)
         player_dummy = Player(name, token)
+        player_dummy.setBankBalance(1500)
         player_list.append(player_dummy)
         i += 1
 
     # Create instance of Monopoly game
     game = Monopoly(player_list)
-    x = game.get_player(2)
-    print(x.get_name())
+    #print(game.get_players())
+
+    while not game.is_over():
+        # Print the name and current location of the player
+        name = game.current_player().getPlayerName()
+        current_position = game.current_player().getPosition()
+        print("Current player: " + str(name) +
+              "   Location: " + str(game.get_board().get_tile_at(current_position).get_name()))
+        input("Press any key to roll the dice ")
+        dice_roll = randint(1,6) + randint(1,6)
+        print("Dice roll value: " + str(dice_roll))
+        print("%s moves %s spaces" % (name, dice_roll))
+        # Current positon
+        current_position = game.current_player().getPosition()
+        game.current_player().setPosition((current_position + dice_roll))
+        current_position = game.current_player().getPosition()
+        print("%s has landed on %s" % (name, game.get_board().get_tile_at(current_position).get_name()))
+        decision = input("Current actions are %s " % (", ".join(["Buy", "Skip"])))
+        if decision == "buy":
+            # Add property to the players hand
+            game.current_player().propertiesOwned.append(game.get_board().get_tile_at(current_position))
+            # Deduct that amount from the
+            game.current_player().bankBalance -= game.get_board().get_tile_at(current_position).get_cost()
+        print("%s, it is the end of your turn")
+        print("| Account Balance: %s | Properties Owned: %s | Location: %s)" % (game.current_player().getBankBalance(),
+                                                                                game.current_player().getPropertiesOwned(),
+                                                                                game.get_board().get_tile_at(current_position).get_name()))
+        input("Press any key to continue to the next player.")
+        game.get_turns().next()
