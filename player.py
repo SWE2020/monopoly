@@ -76,5 +76,3 @@ class Player:
 
     def setPropertiesMortgaged(self):
         return True
-        
-
