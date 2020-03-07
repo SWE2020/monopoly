@@ -1,4 +1,4 @@
-from Tile import *
+from tile import *
 import unittest
 
 class TileTest(unittest.TestCase):

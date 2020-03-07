@@ -1,89 +1,61 @@
 #import Property
-import Die
 
 class Player:
     #initialize all
-    def __init__(self):
+    def __init__(self, name, token):
         #input from player
-        self.playerName = ""
+        self.playerName = name
         #name of token piece
         self.tokenName = ""
-        #true means a real player, false means AI
-        #might need a better name
-        self.realPlayer = true
-        #amount each player gets at the beginning of the game
-        self.bankBalance = 1500
-        #number of times a player has rolled the dice in a single turn; max is 3
-        self.diceRolls = 0
-        #position on board in regards to board array; position 0 is the 'GO' tile and where every player starts
+        self.bankBalance = 0
+        #position on board in regards to board array
+
         self.position = 0
         #holds an array of Property objects
         self.propertiesOwned = []
         #holds an array of Property objects
         self.propertiesMortgaged = []
-        self.hasWon = false
-        self.inJail = false
-        #initially set to false because no player starts out with this card
-        self.hasGetOOJailFreeCard = false
-        #rounds that a player has been in jail; max is 3
-        self.jailTimeCount = 0
-        #player must pass 'GO' once to start buying properties
-        self.passedGoOnce = false
+        self.hasWon = False
+        self.inJail = False
+        jailTimeCount = 0
 
-
-
-    def getPlayerName():
+    def getPlayerName(self):
         return self.playerName
 
-    #this should get called in the GameManager
-    def setPlayerName(pname):
+    def setPlayerName(self, pname):
         self.playerName = pname
 
-    def getTokenName():
+    def getTokenName(self):
         return self.tokenName
 
-    #this should get called in the GameManager
-    def setTokenName(tname):
+    def setTokenName(self, tname):
         self.tokenName = tname
 
-    #returns amount in a player's bank account
-    def getBankBalance():
+    def getBankBalance(self):
         return self.bankBalance
 
-    #adds the amount passed to a players account
-    #should this handle subtractions or should that be a separate function?
-    def addToBankBalance(addAmount):
-        self.bankBalance += addAmount
+    def setBankBalance(self, balance):
+        self.bankBalance = balance
 
-    def subtractFromBankBalance(subAmount):
-        self.bankBalance -= subAmount
-
-    def getPosition():
+    def getPosition(self):
         return self.position
 
-    #sets a players position on the board; should be passed the dice roll
-    #not sure if this should be a +position or just setting it to new position
-    def setPosition(position):
-        self.position += position
+    def setPosition(self, position):
+        self.position = position
 
-    #returns the number of rounds a player has been in jail; should not surpass 3
-    def getJailTimeCount():
+    def getJailTimeCount(self):
         return self.jailTimeCount
 
-    #increments jail time by 1
-    def incrementJailTimeCount():
-        self.jailTimeCount += 1
+    def setJailTimeCount(self, jailTime):
+        self.jailTimeCount = jailTime
 
-    #returns the win status of a player
-    def getHasWon():
+    def getHasWon(self):
         return self.hasWon
 
-    #sets a players win status; true means they have won, false means they haven't won
-    def setHasWon(hasWon):
-        self.hasWon = hasWon
+    def setHasWon(self):
+        self.hasWon = True
 
-    #returns whether a player is in jail or not
-    def getInJail():
+    def getInJail(self):
         return self.inJail
 
     #sets a players jail status; true means in jail, false means not in jail
@@ -95,8 +67,21 @@ class Player:
         self.hasGetOOJailFreeCard = hasCard
 
     #return the array of properties owned
-    def getPropertiesOwned():
-        return self.propertiesOwned
+    def getPropertiesOwned(self):
+        # Changed this so that we could get the names ofo the properties owned
+        #return self.propertiesOwned
+        empty = []
+        for i in self.propertiesOwned:
+            empty.append(i.get_name())
+        return empty
+
+    def setPropertiesOwned(self):
+        return True
+    def getPropertiesMortgaged(self):
+        return self.propertiesMortgaged
+
+    def setPropertiesMortgaged(self):
+        return True
 
     #checks to see if a player can purchase a property; will return false if the player doesn't have
     #enough funds; else will return true, subtract property cost from player's bank account, and add
