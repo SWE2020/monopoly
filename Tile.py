@@ -30,22 +30,6 @@ class Tile:
         """ Returns true if the Tile can be bought in-game, otherwise returns false. """
         return self._can_be_bought
 
-    ## Only for properties
-    def get_cost(self):
-        """ Returns the cost of buying this Tile, iff the Tile can be purchased in-game. """
-        pass
-
-    def get_house_rent(self, house_count):
-        pass
-
-    def get_hotel_rent(self):
-        pass
-
-
-    ## Only for action cards
-    def get_action(self):
-        """ Returns the action that must be undertaken in-game as a string. """
-        pass
 
 
 class ActionTile(Tile):
