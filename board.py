@@ -1,5 +1,5 @@
 import json
-from tile import Tile, PropertyTile, ActionTile
+from Tile import Tile, PropertyTile, ActionTile
 
 class Board:
 

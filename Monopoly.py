@@ -1,8 +1,6 @@
 from random import random, randint
 
-from player import Player
-from board import Board
-
+from actions import *
 
 class TurnManager:
     """
@@ -77,7 +75,7 @@ class Monopoly:
     ## Is over for player in players, if playe has won: self.winner = player, self.isover = true
     #       return self._is over
 
-
+"""
 if __name__ == "__main__":
     token_list = ['!', '@', '#', '$', '%', '^']
     # How many players do we want
@@ -140,3 +138,4 @@ if __name__ == "__main__":
                                                                                 game.get_board().get_tile_at(current_position).get_name()))
         input("Press any key to continue to the next player.")
         game.get_turns().next()
+"""

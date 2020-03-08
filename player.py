@@ -71,6 +71,7 @@ class Player:
 
     def setPropertiesOwned(self):
         return True
+        
     def getPropertiesMortgaged(self):
         return self.propertiesMortgaged
 
