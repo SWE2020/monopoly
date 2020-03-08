@@ -1,5 +1,5 @@
 # Import all other classes
-from Player import *
+from player import *
 from Tile import *
 from Deck import *
 from Bank import *
@@ -75,9 +75,6 @@ def go_to_jail(player):
         # teleport the player to the jail's position
         jail_position = 15
         player.setPosition(jail_position)
-
-player1 = Player("Ege", "token1")
-roll_dice(player1)
 
 #transfer property?
 

@@ -77,7 +77,7 @@ class Player:
 
     def setPropertiesOwned(self):
         return True
-        
+
     def getPropertiesMortgaged(self):
         return self.propertiesMortgaged
 
@@ -115,17 +115,17 @@ class Player:
     def rollDice():
         die = Die()
         currRoll = die.roll()
-        self.diceRolls++
+        self.diceRolls = self.diceRolls + 1
         totalRoll = currRoll[0] + currRoll[1]
         if currRoll[0] == currRoll[1]:
             self.setPosition(totalRoll)
             currRoll = die.roll()
-            self.diceRolls++
+            self.diceRolls = self.diceRolls + 1
             totalRoll = currRoll[0] + currRoll[1]
             if currRoll[0] == currRoll[1]:
                 self.setPosition(totalRoll)
                 currRoll = die.roll()
-                self.diceRolls++
+                self.diceRolls = self.diceRolls + 1
                 totalRoll = currRoll[0] + currRoll[1]
             else:
                 self.setPosition(totalRoll)
