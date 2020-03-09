@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="82ccd804-3a56-4feb-b894-27590b77e729" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1YY5j7QoLqHDhFk6V93EOd3IIXv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
+  </component>
+  <component name="RunManager" selected="Python.monopoly">
+    <configuration name="actions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="monopoly" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/actions.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="monopoly (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="monopoly" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/monopoly.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="monopoly" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="monopoly" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\kaleb\Documents\GitHub\monopoly\monopoly.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for TileTest.TileTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="monopoly" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;TileTest.TileTest&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.monopoly" />
+        <item itemvalue="Python.actions" />
+        <item itemvalue="Python tests.Unittests for TileTest.TileTest" />
+        <item itemvalue="Python.monopoly (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="82ccd804-3a56-4feb-b894-27590b77e729" name="Default Changelist" comment="" />
+      <created>1582808090095</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582808090095</updated>
+      <workItem from="1582808091405" duration="8509000" />
+      <workItem from="1583106825315" duration="4154000" />
+      <workItem from="1583143977507" duration="1080000" />
+      <workItem from="1583177650369" duration="6000" />
+      <workItem from="1583242562219" duration="1209000" />
+      <workItem from="1583251722435" duration="29000" />
+      <workItem from="1583595343703" duration="5765000" />
+      <workItem from="1583700904673" duration="12249000" />
+      <workItem from="1583772540185" duration="2434000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1637" height="313" key="GridCell.Tab.0.bottom" timestamp="1583713242163">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state width="1237" height="506" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1583146244948" />
+    <state width="1637" height="313" key="GridCell.Tab.0.bottom/1680.0.1280.707/0.0.1680.1010@0.0.1680.1010" timestamp="1583713242163" />
+    <state width="1637" height="313" key="GridCell.Tab.0.center" timestamp="1583713242163">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state width="1237" height="506" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1583146244948" />
+    <state width="1637" height="313" key="GridCell.Tab.0.center/1680.0.1280.707/0.0.1680.1010@0.0.1680.1010" timestamp="1583713242163" />
+    <state width="1637" height="313" key="GridCell.Tab.0.left" timestamp="1583713242163">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state width="1237" height="506" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1583146244947" />
+    <state width="1637" height="313" key="GridCell.Tab.0.left/1680.0.1280.707/0.0.1680.1010@0.0.1680.1010" timestamp="1583713242163" />
+    <state width="1637" height="313" key="GridCell.Tab.0.right" timestamp="1583713242163">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state width="1237" height="506" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1583146244948" />
+    <state width="1637" height="313" key="GridCell.Tab.0.right/1680.0.1280.707/0.0.1680.1010@0.0.1680.1010" timestamp="1583713242163" />
+    <state x="341" y="147" key="SettingsEditor" timestamp="1583703888758">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="260" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1583146238701" />
+    <state x="341" y="147" key="SettingsEditor/1680.0.1280.707/0.0.1680.1010@0.0.1680.1010" timestamp="1583703888758" />
+    <state x="338" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1583772548638">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="338" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1583772548638" />
+    <state x="444" y="245" key="com.intellij.ide.util.TipDialog/1680.0.1280.707/0.0.1680.1010@0.0.1680.1010" timestamp="1583701006163" />
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup" timestamp="1583711072398">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="383" y="146" width="672" height="457" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1583109657668" />
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup/1680.0.1280.707/0.0.1680.1010@0.0.1680.1010" timestamp="1583711072398" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/monopoly$monopoly.coverage" NAME="monopoly Coverage Results" MODIFIED="1583772824792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/monopoly$Monopoly.coverage" NAME="monopoly Coverage Results" MODIFIED="1582812650630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/monopoly$monopoly__1_.coverage" NAME="monopoly (1) Coverage Results" MODIFIED="1583146244933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/monopoly$actions.coverage" NAME="actions Coverage Results" MODIFIED="1583701387232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/monopoly$Unittests_for_TileTest_TileTest.coverage" NAME="Unittests for TileTest.TileTest Coverage Results" MODIFIED="1583601652649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

@@ -19,6 +19,8 @@ class Player:
         self.inJail = False
         jailTimeCount = 0
 
+        self._has_passed_go = False
+
     def getPlayerName(self):
         return self.playerName
 
@@ -33,6 +35,12 @@ class Player:
 
     def getBankBalance(self):
         return self.bankBalance
+
+    def decrease_balance(self, decremeneter):
+        self.bankBalance -= decremeneter
+
+    def increase_balance(self, incrementer):
+        self.bankBalance += incrementer
 
     def setBankBalance(self, balance):
         self.bankBalance = balance
@@ -78,3 +86,78 @@ class Player:
         return True
         
 
+<<<<<<< Updated upstream
+=======
+    def has_passed_go(self):
+        return self._has_passed_go
+
+    def set_passed_go(self):
+        self._has_passed_go = True
+
+    #checks to see if a player can purchase a property; will return false if the player doesn't have
+    #enough funds; else will return true, subtract property cost from player's bank account, and add
+    #property to list of player's properties
+    #dependent on implementation of property class
+    def buyProperty(self, property):
+
+            bankBalance = self.getBankBalance()
+            propertyPrice = property.get_cost()
+            if propertyPrice > bankBalance:
+                print("Not enough cash to complete this transaction")
+                return False
+            else:
+                self.bankBalance -= propertyPrice
+                self.addPropertyOwned(property)
+                print("Property has been purchased. ")
+                return True
+
+
+
+    #add a property to the array of properties owned
+    def addPropertyOwned(self, property):
+        self.propertiesOwned.append(property)
+
+    #should be called in GameManager after initial go-around?
+    def passedGoOnce():
+        self.passedGoOnce = true
+
+    def passedGo():
+        self.bankBalance += 2000
+
+    def rollDice():
+        die = Die()
+        currRoll = die.roll()
+        self.diceRolls = self.diceRolls + 1
+        totalRoll = currRoll[0] + currRoll[1]
+        if currRoll[0] == currRoll[1]:
+            self.setPosition(totalRoll)
+            currRoll = die.roll()
+            self.diceRolls = self.diceRolls + 1
+            totalRoll = currRoll[0] + currRoll[1]
+            if currRoll[0] == currRoll[1]:
+                self.setPosition(totalRoll)
+                currRoll = die.roll()
+                self.diceRolls = self.diceRolls + 1
+                totalRoll = currRoll[0] + currRoll[1]
+            else:
+                self.setPosition(totalRoll)
+                if currRoll[0] == currRoll[1]:
+                    self.goToJail()
+                else:
+                    self.setPosition(totalRoll)
+        else:
+            self.setPosition(totalRoll)
+
+    #returns true if successful, false if they dont have enough money
+    #this is dependent on implementation of the Property class and how that will deal
+    #with houses and hotels
+    def buyHouseOrHotel(property):
+        bankBalance = self.getBankBalance
+        price = property.getPrice
+        if price > bankBalance:
+            return false
+        else:
+            self.subtractFromBankBalance(price)
+            property.addHotel()
+            return true
+>>>>>>> Stashed changes

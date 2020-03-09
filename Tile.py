@@ -60,7 +60,17 @@ class ActionTile(Tile):
         self._action = action
 
     def get_action(self):
+<<<<<<< Updated upstream
         pass
+=======
+        return self._action
+
+    def perform_action(self):
+        """ Returns:
+                The action for instance """
+        print(self._name)
+        print(self._action)
+>>>>>>> Stashed changes
 
 
 class PropertyTile(Tile):
@@ -73,6 +83,7 @@ class PropertyTile(Tile):
 
         self._num_houses = 0
         self._num_hotel = 0
+        self._owner = None
 
     def get_house_count(self):
         return self._num_houses
@@ -82,6 +93,9 @@ class PropertyTile(Tile):
 
     def get_cost(self):
         return self._cost
+
+    def get_owner(self):
+        return self._owner
 
     def add_house(self):
         if self._num_houses != 4:

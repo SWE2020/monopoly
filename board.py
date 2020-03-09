@@ -31,10 +31,10 @@ class Board:
         hotel = json_tile['1 hotel']
 
         if can_be_bought:
-            tile = PropertyTile(position, name, group, action, can_be_bought, cost, rent, rent1, rent2, rent3, rent4, hotel)
+            tile = PropertyTile(position, name, group, cost, rent, rent1, rent2, rent3, rent4, hotel)
 
         else:
-            tile = ActionTile(position, name, group, action, can_be_bought, cost, rent, rent1, rent2, rent3, rent4, hotel)
+            tile = ActionTile(position, name, action)
 
         return tile
 
@@ -42,4 +42,5 @@ class Board:
         return self._tile_list
 
     def get_tile_at(self, int):
+        print(int)
         return self._tile_list[int]
