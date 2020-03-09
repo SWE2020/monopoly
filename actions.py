@@ -75,7 +75,3 @@ def go_to_jail(player):
         # teleport the player to the jail's position
         jail_position = 15
         player.setPosition(jail_position)
-
-#transfer property?
-
-#card actions! (another file?)
