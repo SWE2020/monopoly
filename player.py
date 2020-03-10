@@ -66,9 +66,15 @@ class Player:
     def getInJail(self):
         return self.inJail
 
-    def setInJail(self):
-        self.inJail = True
+    #sets a players jail status; true means in jail, false means not in jail
+    def setInJail(inJail):
+        self.inJail = inJail
 
+    #pass true if player received a 'Get Out of Jail Free' card, pass false if the player used it
+    def setGetOOJailFreeCard(hasCard):
+        self.hasGetOOJailFreeCard = hasCard
+
+    #return the array of properties owned
     def getPropertiesOwned(self):
         # Changed this so that we could get the names ofo the properties owned
         #return self.propertiesOwned
@@ -79,15 +85,13 @@ class Player:
 
     def setPropertiesOwned(self):
         return True
+
     def getPropertiesMortgaged(self):
         return self.propertiesMortgaged
 
     def setPropertiesMortgaged(self):
         return True
-        
 
-<<<<<<< Updated upstream
-=======
     def has_passed_go(self):
         return self._has_passed_go
 
@@ -160,4 +164,3 @@ class Player:
             self.subtractFromBankBalance(price)
             property.addHotel()
             return true
->>>>>>> Stashed changes

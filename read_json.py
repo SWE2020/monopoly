@@ -1,5 +1,6 @@
 import json
-from tile import *
+from Tile import *
+from Card import *
 
 """
 Reads the JSON file named "CardData.json"
@@ -43,8 +44,12 @@ def create_tiles(array):
 
     return empty
 
-def parse_dictionary(dictionary):
+def create_cards(array):
+    empty = []
+    for i in array:
+        empty.append(parse_dictionary_1(i))
 
+def parse_dictionary(dictionary):
 
     position = dictionary['Position']
     name = dictionary['Space/property']
@@ -70,6 +75,22 @@ def parse_dictionary(dictionary):
         return p
 
 
+def parse_dictionary_1(dictionary):
+    class_id = dictionary["Card_ID"]
+    subclass = dictionary["SubClassType"]
+    description = dictionary["Description"]
+    action_data = dictionary["ActionData"]
+    # action_description = dictionary["CanBuy"]
+    card_type = dictionary["Card Type"]
+
+    if subclass == "Payment":
+        PaymentCard()
+    elif subclass == "Movement":
+        pass
+    elif subclass == "JailFree":
+        pass
+
+
 
 
 
@@ -77,6 +98,14 @@ def parse_dictionary(dictionary):
 
 
 if __name__ == "__main__":
-    x = read_PropData()
-    board = create_tiles(x)
-    print(board[7].get_name())
+    x = read_CardData()
+    for i in x:
+        if i['SubClassType'] == "Payment":
+            print("pay")
+            PaymentCard()
+        elif i['SubClassType'] == "Movement":
+            print("move")
+        elif i['SubClassType'] == "JailFree":
+            print("Jaily")
+
+

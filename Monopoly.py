@@ -1,8 +1,6 @@
 from random import random, randint
 
-from player import Player
-from board import Board
-
+from actions import *
 
 class TurnManager:
     """
@@ -160,7 +158,4 @@ if __name__ == "__main__":
                                                                                 game.get_board().get_tile_at(current_position).get_name()))
         #input(">>>>> Press any key to continue to the next player.")
         game.get_turns().next()
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
