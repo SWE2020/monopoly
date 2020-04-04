@@ -6,15 +6,21 @@ def rescale(image, scale):
     return image
 
 class Button:
-    def __init__(self, coordinates=(0,0), image1="start1.png", image2="start2.png", scale=1):
-        # scale the image
+    def __init__(self, coordinates=(0,0), image1=None, image2=None, image3=None, scale=1):
+        # Default Image
         image1 = pygame.image.load(image1)
         image1 = rescale(image1, scale)
         self.image1 = image1
 
+        # Mouse over image
         image2 = pygame.image.load(image2)
         image2 = rescale(image2, scale)
         self.image2 = image2
+
+        # Clicked Image
+        image3 = pygame.image.load(image3)
+        image3 = rescale(image3, scale)
+        self.image3 = image3
 
         # mouse over
         self.mouse_over = False
@@ -35,18 +41,19 @@ class Button:
 
     def show(self, display):
         if not self.clicked:
-            display.blit(self.image1, self.rect)
+            if self.over():
+                # mouse over image
+                display.blit(self.image2, self.rect)
+            else:
+                # standard image
+                display.blit(self.image1, self.rect)
         else:
-            display.blit(self.image2, self.rect)
+            # clicked image
+            display.blit(self.image3, self.rect)
 
     def over(self):
         x,y = pygame.mouse.get_pos()
         return self.rect.collidepoint(x,y)
-
-    def reverse_images(self):
-        temp = self.image1
-        self.image1 = self.image2
-        self.image2 = temp
 
 
 

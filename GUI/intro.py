@@ -11,18 +11,19 @@ def game_intro():
     DISPLAY_SIZE = (800, 400)
     DISPLAY_COLOR = (15, 15, 15)
     gamedisplay = pygame.display.set_mode(DISPLAY_SIZE)
+    pygame.display.set_caption("Main Menu")
     gamedisplay.fill(DISPLAY_COLOR)
 
     # Title
-    game_title = Button((400,100), "intro_images/gametitle1.png", "intro_images/gametitle1.png", 0.4)
+    game_title = Button((400,100), "GUI/intro_images/gametitle1.png", "GUI/intro_images/gametitle1.png", "GUI/intro_images/gametitle1.png", 0.4)
 
     # set up buttons
-    play_button = Button((400,220), "intro_images/start1.png", "intro_images/start2.png")
-    button2 = Button((300,280), "intro_images/button21.png", "intro_images/button22.png")
-    button3 = Button((350,280), "intro_images/button31.png", "intro_images/button32.png")
-    button4 = Button((400,280), "intro_images/button41.png", "intro_images/button42.png")
-    button5 = Button((450,280), "intro_images/button51.png", "intro_images/button52.png")
-    button6 = Button((500,280), "intro_images/button61.png", "intro_images/button62.png")
+    play_button = Button((400,220), "GUI/intro_images/start1.png", "GUI/intro_images/start2.png", "GUI/intro_images/start2.png")
+    button2 = Button((300,280), "GUI/intro_images/button21.png", "GUI/intro_images/button21.png", "GUI/intro_images/button22.png")
+    button3 = Button((350,280), "GUI/intro_images/button31.png", "GUI/intro_images/button31.png", "GUI/intro_images/button32.png")
+    button4 = Button((400,280), "GUI/intro_images/button41.png", "GUI/intro_images/button41.png", "GUI/intro_images/button42.png")
+    button5 = Button((450,280), "GUI/intro_images/button51.png", "GUI/intro_images/button51.png", "GUI/intro_images/button52.png")
+    button6 = Button((500,280), "GUI/intro_images/button61.png", "GUI/intro_images/button61.png", "GUI/intro_images/button62.png")
 
     intro = True
     while intro:
