@@ -3,7 +3,6 @@ from Button import Button
 from GameText import GameText
 
 def game_intro():
-    pygame.init()
     # num of players
     num_players = 0
 
@@ -13,6 +12,7 @@ def game_intro():
     gamedisplay = pygame.display.set_mode(DISPLAY_SIZE)
     pygame.display.set_caption("Main Menu")
     gamedisplay.fill(DISPLAY_COLOR)
+    background = pygame.image.load("GUI/background1.jpg")
 
     # Title
     game_title = Button((400,100), "GUI/intro_images/gametitle1.png", "GUI/intro_images/gametitle1.png", "GUI/intro_images/gametitle1.png", 0.4)
@@ -79,6 +79,7 @@ def game_intro():
                     button5.clicked = False
                     button6.clicked = True
 
+        gamedisplay.blit(background, (-300, 0))
         game_title.show(gamedisplay)
         play_button.show(gamedisplay)
         button2.show(gamedisplay)
