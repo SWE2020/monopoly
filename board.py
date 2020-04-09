@@ -4,11 +4,9 @@ from Tile import Tile, PropertyTile, ActionTile
 class Board:
 
     def __init__(self):
-
         self._tile_list = []
 
     def populate_board(self):
-
         with open("PropData.json", "r") as read_file:
             json_format = json.load(read_file)
 
@@ -16,7 +14,7 @@ class Board:
             self._tile_list.append(self.create_tile(item))
 
     def create_tile(self, json_tile):
-        
+
         position = json_tile['Position']
         name = json_tile['Space/property']
         group = json_tile['Group']
@@ -31,11 +29,9 @@ class Board:
         hotel = json_tile['1 hotel']
 
         if can_be_bought:
-            tile = PropertyTile(position, name, group, action, can_be_bought, cost, rent, rent1, rent2, rent3, rent4, hotel)
-
+            tile = PropertyTile(position, name, group, cost, rent, rent1, rent2, rent3, rent4, hotel, can_be_bought)
         else:
-            tile = ActionTile(position, name, group, action, can_be_bought, cost, rent, rent1, rent2, rent3, rent4, hotel)
-
+            tile = ActionTile(position, name, action, can_be_bought)
         return tile
 
     def get_tile_list(self):

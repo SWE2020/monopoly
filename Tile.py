@@ -9,7 +9,7 @@ class Tile:
 
     def __init__(self, position, name, can_be_bought):
         """ Creates an instance of the Tile object
-         
+
             Should not be instantiated directly. """
 
         self._name = name
@@ -184,4 +184,17 @@ class PropertyTile(Tile):
             # print("Nothing, base rent then: " + str(self._rent))
             return self._rent
 
-
+'''
+# TEST
+pt = PropertyTile(1, 'Property_Name', 'Action', True, 66, 100, 101, 102, 103, 104, 300)
+print(pt._position)
+print(pt._name)
+print(pt._can_be_bought)
+print(pt._group)
+print(pt._cost)
+print(pt._rent)
+print(pt._house_rent)
+print(pt._hotel_rent)
+print(pt._num_houses)
+print(pt._num_hotel)
+'''

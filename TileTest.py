@@ -1,4 +1,4 @@
-from tile import *
+from Tile import *
 import unittest
 
 class TileTest(unittest.TestCase):
@@ -138,6 +138,3 @@ class PropertyTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
-
