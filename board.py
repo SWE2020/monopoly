@@ -16,7 +16,7 @@ class Board:
             self._tile_list.append(self.create_tile(item))
 
     def create_tile(self, json_tile):
-
+        
         position = json_tile['Position']
         name = json_tile['Space/property']
         group = json_tile['Group']
