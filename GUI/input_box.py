@@ -3,7 +3,11 @@ import pygame as pg
 
 pg.init()
 COLOR_INACTIVE = pg.Color('lightskyblue3')
+COLOR_INACTIVE = (30,30,30)
+
 COLOR_ACTIVE = pg.Color('dodgerblue2')
+COLOR_ACTIVE = (190,0,0)
+
 FONT = pg.font.Font(None, 32)
 
 
