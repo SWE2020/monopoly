@@ -1,28 +1,20 @@
-import sys
-sys.path.append('/Users/egeersu/Desktop/monopoly/GUI')
-from Name_Selection import *
-from Intro_Screen import *
+#from Name_Selection import *
 #from Monopoly import *
-
 import pygame
+import GUI
 pygame.init()
 
-def rescale(img, scale):
-    h1, w1 = img.get_size()
-    img = pygame.transform.scale(img, (int(h1*scale), int(w1*scale)))
-    return img
-
 # Music
-#pygame.mixer.music.load("GUI/game_music.ogg")
+#pygame.mixer.music.load("soundtrack.mp3")
 #pygame.mixer.music.play(-1)
 
 # Play the intro, save number of players
-num_players = game_intro()
-#num_players = 2
+num_players = GUI.game_intro()
+#num_players = 3
 
 # Player Name Selection
-Player_Names = select(num_players)
-print(Player_Names)
+Player_Names = GUI.select(num_players)
+#Player_Names = ["Ege", "Deniz", "Elif"]
 
 # display
 DISPLAY_SIZE = (1440,770); DISPLAY_COLOR = (110,110,110)

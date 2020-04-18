@@ -1,12 +1,5 @@
 import pygame
-from input_box import *
-from GameText import *
-from Button import *
-
-def rescale(img, scale):
-    h1, w1 = img.get_size()
-    img = pygame.transform.scale(img, (int(h1*scale), int(w1*scale)))
-    return img
+from GUI.utils import Button, GameText, InputBox, rescale
 
 def select(num_players):
     # display
@@ -19,7 +12,7 @@ def select(num_players):
     title = GameText((500, 12), "PLAYER NAMES", text_color, 32)
 
     # Button
-    next_button = Button((1090,640), "GUI/character_selection/button_next1.png", "GUI/character_selection/button_next2.png", "GUI/character_selection/button_next2.png", 1)
+    next_button = Button((1090,640), "GUI/images/name_selection_images/button_next1.png", "GUI/images/name_selection_images/button_next2.png", "GUI/images/name_selection_images/button_next2.png", 1)
 
 
     # Texts
@@ -43,16 +36,15 @@ def select(num_players):
     box6 = InputBox(box_x, box_y + 6*74, 270, 40)
 
     # Background
-    #background = pygame.image.load("GUI/background_names.jpg")
-    background = pygame.image.load("GUI/character_selection/background9.png")
+    background = pygame.image.load("GUI/images/backgrounds/background9.png")
 
     # Tokens
-    boot = pygame.image.load("GUI/character_selection/boot.png")
-    phone = pygame.image.load("GUI/character_selection/phone.png")
-    hat = pygame.image.load("GUI/character_selection/hat.png")
-    goblet = pygame.image.load("GUI/character_selection/goblet.png")
-    cat = pygame.image.load("GUI/character_selection/cat.png")
-    spoon = pygame.image.load("GUI/character_selection/spoon.png")
+    boot = pygame.image.load("GUI/images/name_selection_images/boot.png")
+    phone = pygame.image.load("GUI/images/name_selection_images/phone.png")
+    hat = pygame.image.load("GUI/images/name_selection_images/hat.png")
+    goblet = pygame.image.load("GUI/images/name_selection_images/goblet.png")
+    cat = pygame.image.load("GUI/images/name_selection_images/cat.png")
+    spoon = pygame.image.load("GUI/images/name_selection_images/spoon.png")
 
     if num_players == 2:
         texts = [text1, text2]
