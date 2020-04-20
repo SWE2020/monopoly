@@ -29,8 +29,8 @@ Returns a list of dictionaries where each dictionary has keys:
     '3 house'
     '4 house'
     '1 hotel'
+    'image'
 """
-
 def read_PropData(path_file="PropData.json"):
     with open(path_file, "r") as read_file:
         data = json.load(read_file)
@@ -40,12 +40,10 @@ def create_tiles(array):
     empty = []
     for i in array:
         empty.append(parse_dictionary(i))
-
     return empty
 
 def parse_dictionary(dictionary):
-
-
+    print(dictionary)
     position = dictionary['Position']
     name = dictionary['Space/property']
     group = dictionary['Group']
@@ -58,22 +56,17 @@ def parse_dictionary(dictionary):
     rent3 = dictionary['3 houses']
     rent4 = dictionary['4 houses']
     hotel = dictionary['1 hotel']
+    image = dictionary['image']
 
     if dictionary['Can be bought?'] == True:
         print("PropertyTile")
         #ropertyTile()
-        p = PropertyTile(position, name, group, action, can_be_bought, cost, rent, rent1, rent2, rent3, rent4, hotel)
+        p = PropertyTile(position, name, group, action, can_be_bought, cost, rent, rent1, rent2, rent3, rent4, hotel, image)
         return p
     else:
         print("ActionTile")
-        p = ActionTile(position, name, group, action, can_be_bought, cost, rent, rent1, rent2, rent3, rent4, hotel)
+        p = ActionTile(position, name, group, action, can_be_bought, cost, rent, rent1, rent2, rent3, rent4, hotel, image)
         return p
-
-
-
-
-
-
 
 
 if __name__ == "__main__":

@@ -11,7 +11,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 2,
@@ -25,7 +26,8 @@
     "2 houses": 30,
     "3 houses": 90,
     "4 houses": 160,
-    "1 hotel": 250
+    "1 hotel": 250,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 3,
@@ -39,7 +41,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 4,
@@ -53,7 +56,8 @@
     "2 houses": 60,
     "3 houses": 180,
     "4 houses": 320,
-    "1 hotel": 450
+    "1 hotel": 450,
+    "image": "GUI/images/property_cards/GP.png"
   },
   {
     "Position": 5,
@@ -67,7 +71,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 6,
@@ -81,7 +86,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 7,
@@ -95,7 +101,8 @@
     "2 houses": 90,
     "3 houses": 270,
     "4 houses": 400,
-    "1 hotel": 550
+    "1 hotel": 550,
+    "image": "GUI/images/property_cards/WA.png"
   },
   {
     "Position": 8,
@@ -109,7 +116,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 9,
@@ -123,7 +131,8 @@
     "2 houses": 90,
     "3 houses": 270,
     "4 houses": 400,
-    "1 hotel": 550
+    "1 hotel": 550,
+    "image": "GUI/images/property_cards/PA.png"
   },
   {
     "Position": 10,
@@ -137,7 +146,8 @@
     "2 houses": 100,
     "3 houses": 300,
     "4 houses": 450,
-    "1 hotel": 600
+    "1 hotel": 600,
+    "image": "GUI/images/property_cards/ND.png"
   },
   {
     "Position": 11,
@@ -151,7 +161,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 12,
@@ -165,7 +176,8 @@
     "2 houses": 150,
     "3 houses": 450,
     "4 houses": 625,
-    "1 hotel": 750
+    "1 hotel": 750,
+    "image": "GUI/images/property_cards/SD.png"
   },
   {
     "Position": 13,
@@ -179,7 +191,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 14,
@@ -193,7 +206,8 @@
     "2 houses": 150,
     "3 houses": 450,
     "4 houses": 625,
-    "1 hotel": 750
+    "1 hotel": 750,
+    "image": "GUI/images/property_cards/WH.png"
   },
   {
     "Position": 15,
@@ -207,7 +221,8 @@
     "2 houses": 180,
     "3 houses": 500,
     "4 houses": 700,
-    "1 hotel": 900
+    "1 hotel": 900,
+    "image": "GUI/images/property_cards/RL.png"
   },
   {
     "Position": 16,
@@ -221,7 +236,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 17,
@@ -235,7 +251,8 @@
     "2 houses": 200,
     "3 houses": 550,
     "4 houses": 750,
-    "1 hotel": 950
+    "1 hotel": 950,
+    "image": "GUI/images/property_cards/CD.png"
   },
   {
     "Position": 18,
@@ -249,7 +266,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 19,
@@ -263,7 +281,8 @@
     "2 houses": 200,
     "3 houses": 550,
     "4 houses": 750,
-    "1 hotel": 950
+    "1 hotel": 950,
+    "image": "GUI/images/property_cards/WS.png"
   },
   {
     "Position": 20,
@@ -277,7 +296,8 @@
     "2 houses": 220,
     "3 houses": 600,
     "4 houses": 800,
-    "1 hotel": 1000
+    "1 hotel": 1000,
+    "image": "GUI/images/property_cards/PL.png"
   },
   {
     "Position": 21,
@@ -291,7 +311,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 22,
@@ -305,7 +326,8 @@
     "2 houses": 250,
     "3 houses": 700,
     "4 houses": 875,
-    "1 hotel": 1050
+    "1 hotel": 1050,
+    "image": "GUI/images/property_cards/YFS.png"
   },
   {
     "Position": 23,
@@ -319,7 +341,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 24,
@@ -333,7 +356,8 @@
     "2 houses": 250,
     "3 houses": 700,
     "4 houses": 875,
-    "1 hotel": 1050
+    "1 hotel": 1050,
+    "image": "GUI/images/property_cards/MR.png"
   },
   {
     "Position": 25,
@@ -347,7 +371,8 @@
     "2 houses": 300,
     "3 houses": 750,
     "4 houses": 925,
-    "1 hotel": 1100
+    "1 hotel": 1100,
+    "image": "GUI/images/property_cards/HXG.png"
   },
   {
     "Position": 26,
@@ -361,7 +386,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 27,
@@ -375,7 +401,8 @@
     "2 houses": 330,
     "3 houses": 800,
     "4 houses": 975,
-    "1 hotel": 1150
+    "1 hotel": 1150,
+    "image": "GUI/images/property_cards/KC.png"
   },
   {
     "Position": 28,
@@ -389,7 +416,8 @@
     "2 houses": 330,
     "3 houses": 800,
     "4 houses": 975,
-    "1 hotel": 1150
+    "1 hotel": 1150,
+    "image": "GUI/images/property_cards/PAV.png"
   },
   {
     "Position": 29,
@@ -403,7 +431,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 30,
@@ -417,7 +446,8 @@
     "2 houses": 360,
     "3 houses": 850,
     "4 houses": 1025,
-    "1 hotel": 1200
+    "1 hotel": 1200,
+    "image": "GUI/images/property_cards/CC.png"
   },
   {
     "Position": 31,
@@ -431,7 +461,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 32,
@@ -445,7 +476,8 @@
     "2 houses": 390,
     "3 houses": 900,
     "4 houses": 1100,
-    "1 hotel": 1275
+    "1 hotel": 1275,
+    "image": "GUI/images/property_cards/SM.png"
   },
   {
     "Position": 33,
@@ -459,7 +491,8 @@
     "2 houses": 390,
     "3 houses": 900,
     "4 houses": 1100,
-    "1 hotel": 1275
+    "1 hotel": 1275,
+    "image": "GUI/images/property_cards/GC.png"
   },
   {
     "Position": 34,
@@ -473,7 +506,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 35,
@@ -487,7 +521,8 @@
     "2 houses": 450,
     "3 houses": 1000,
     "4 houses": 1200,
-    "1 hotel": 1400
+    "1 hotel": 1400,
+    "image": "GUI/images/property_cards/IC.png"
   },
   {
     "Position": 36,
@@ -501,7 +536,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 37,
@@ -515,7 +551,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 38,
@@ -529,7 +566,8 @@
     "2 houses": 500,
     "3 houses": 1100,
     "4 houses": 1300,
-    "1 hotel": 1500
+    "1 hotel": 1500,
+    "image": "GUI/images/property_cards/HW.png"
   },
   {
     "Position": 39,
@@ -543,7 +581,8 @@
     "2 houses": null,
     "3 houses": null,
     "4 houses": null,
-    "1 hotel": null
+    "1 hotel": null,
+    "image": "GUI/images/property_cards/CS.png"
   },
   {
     "Position": 40,
@@ -557,6 +596,7 @@
     "2 houses": "600",
     "3 houses": "1400",
     "4 houses": "1700",
-    "1 hotel": "2000"
+    "1 hotel": "2000",
+    "image": "GUI/images/property_cards/TH.png"
   }
 ]

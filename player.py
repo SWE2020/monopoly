@@ -7,7 +7,7 @@ class Player:
         self.playerName = name
         #name of token piece
         self.tokenName = ""
-        self.bankBalance = 0
+        self.bankBalance = 1000
         #position on board in regards to board array
 
         self.position = 0

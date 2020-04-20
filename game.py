@@ -1,55 +1,41 @@
 from random import random, randint
-
+import target_tile
+from turn_manager import TurnManager
+import GUI
 from actions import *
 
-class TurnManager:
-    """
-    A class to manage the order of turns amongst game players.
-    """
+class Game:
 
-    def __init__(self, players):
-        """
-        Construct a new turn manager based on game players.
+    def __init__(self):
 
-        Parameters:
-            players (List<T>): An ordered list of players to store.
-        """
-        self._players = players
-        # Start in correct direction
-        self._direction = True
-        self._location = 0
-        self._max = len(players)
-
-    def current(self):
-        return self._players[self._location]
-
-    def next(self):
-        return self.skip(count=0)
-
-    def get_player(self, position):
-        return self._players[position]
-
-    def skip(self, count=0):
-        count += 1
-        self._location += count
-        self._location %= self._max
-        return self._players[self._location]
+        self._players = []
+        self._tokens = ['boot', 'phone', 'hat', 'cat', 'goblet', 'spoon']
+        self.play_intro()
 
 
-class Monopoly:
+        self._turns = TurnManager(self._players)
 
-    def __init__(self, players):
-        self._players = players
-        self._turns = TurnManager(players)
         self._board = Board()
         self._board.populate_board()
-
-        # Decks of Cards
+        self._board.setup_board()
 
         self._is_over = False
         self._winner = None
 
-        self._action = None
+    def play_intro(self):
+        #pygame.mixer.music.load("soundtrack.mp3")
+        #pygame.mixer.music.play(-1)
+
+        #num_players = GUI.game_intro()
+        num_players = 4
+
+        #player_names = GUI.select(num_players)
+        player_names = ["Ege", "Can", "Deniz", "Mert"]
+
+        for i in range(num_players):
+            new_player = Player(player_names[i], self._tokens[i])
+            self._players.append(new_player)
+
 
     def get_players(self):
         return self._players
@@ -72,8 +58,8 @@ class Monopoly:
     def is_over(self):
         return self._is_over
 
-    ## Is over for player in players, if playe has won: self.winner = player, self.isover = true
-    #       return self._is over
+    def draw(self):
+        self._board.draw_board(self)
 
 """
 if __name__ == "__main__":

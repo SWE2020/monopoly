@@ -1,6 +1,6 @@
 # Import all other classes
 from player import *
-from Tile import *
+from tile import *
 from Deck import *
 from Bank import *
 from Die import *

@@ -1,3 +1,6 @@
+import pygame
+import GUI
+
 class Tile:
     """ An abstract representation of a Monopoly game tile
 
@@ -7,7 +10,7 @@ class Tile:
             can_be_bought: A boolean that indicates whether this tile can be bought
             """
 
-    def __init__(self, position, name, can_be_bought):
+    def __init__(self, position, name, can_be_bought, image):
         """ Creates an instance of the Tile object
 
             Should not be instantiated directly. """
@@ -15,6 +18,7 @@ class Tile:
         self._name = name
         self._position = position
         self._can_be_bought = can_be_bought
+        self._image = GUI.utils.rescale(pygame.image.load(image), 0.20)
 
     def get_name(self):
         """ Returns:
@@ -31,6 +35,11 @@ class Tile:
             True, if the Tile can be bought in-game, otherwise returns false. """
         return self._can_be_bought
 
+    def get_image(self):
+        """ Returns:
+            The image for tile"""
+        return self._image
+
 
 class ActionTile(Tile):
     """ A Monopoly game tile that triggers special interactions within the game.
@@ -46,7 +55,7 @@ class ActionTile(Tile):
             can_be_bought: A boolean that indicates whether this tile can be bought
     """
 
-    def __init__(self, position, name, action, can_be_bought=False):
+    def __init__(self, position, name, action, can_be_bought=False, image=None):
 
         """ Creates an instance of the ActionTile class
 
@@ -59,7 +68,7 @@ class ActionTile(Tile):
 
         """
 
-        super().__init__(position, name, can_be_bought)
+        super().__init__(position, name, can_be_bought, image)
 
         self._action = action
 
@@ -90,7 +99,7 @@ class PropertyTile(Tile):
             hotel_rent: An integer of the total amount of rent, if the property has a hotel
         """
     def __init__(self, position, name, group, cost, rent, house_rent_1, house_rent_2,
-                 house_rent_3, house_rent_4, hotel_rent, can_be_bought=True):
+                 house_rent_3, house_rent_4, hotel_rent, can_be_bought=True, image=None):
 
         """ Creates an instance of PropertyTile with the arguments assigned to the attributes of PropertyTile.
 
@@ -108,7 +117,7 @@ class PropertyTile(Tile):
             hotel_rent: An integer of the total amount of rent, if the property has a hotel
             """
 
-        super().__init__(position, name, can_be_bought)
+        super().__init__(position, name, can_be_bought, image)
 
         self._group = group
         self._cost = cost
@@ -183,18 +192,3 @@ class PropertyTile(Tile):
         else:
             # print("Nothing, base rent then: " + str(self._rent))
             return self._rent
-
-'''
-# TEST
-pt = PropertyTile(1, 'Property_Name', 'Action', True, 66, 100, 101, 102, 103, 104, 300)
-print(pt._position)
-print(pt._name)
-print(pt._can_be_bought)
-print(pt._group)
-print(pt._cost)
-print(pt._rent)
-print(pt._house_rent)
-print(pt._hotel_rent)
-print(pt._num_houses)
-print(pt._num_hotel)
-'''
