@@ -3,7 +3,7 @@ from player import *
 from tile import *
 from Deck import *
 from Bank import *
-from Die import *
+from die import *
 from board import *
 #from Monopoly import Monopoly, TurnManager
 

@@ -1,6 +1,8 @@
 import pygame
+import GUI
 
 def display_target_tile(game):
+    """displays the tile that is targeted by the player's cursor and highlights that tile on the board"""
     board = game.get_board()
     display = board.get_display()
     tile_rects = board._tile_rects
@@ -17,12 +19,27 @@ def display_target_tile(game):
             highlight.fill((0,0,0,128))
             display.blit(highlight, (rect[0], rect[1]))
 
-            # get image of the corrensponding tile
-            target_image = board.get_tile_at(target_index).get_image()
+            # get the corrensponding tile
+            target_tile = board.get_tile_at(target_index)
 
             # display the target card
-            display.blit(target_image, (1100,0))
+            display.blit(target_tile.get_image(), (685, 408))
 
+            # display owner of the tile
+            owner_string = "Owned by: " + target_tile._owner.getPlayerName()
+            owner_text = GUI.GameText((x,y), owner_string, (220,220,220), 33)
+            owner_text.show(display)
+
+def display_current_tile(game):
+    """displays the tile on which the current player stands"""
+    x,y = pygame.mouse.get_pos()
+    display = game.get_board()._display
+    current_position = game.get_turns().current().getPosition()
+    current_tile = game.get_board().get_tile_at(current_position)
+    current_image = current_tile.get_image()
+    display.blit(GUI.rescale(current_image, 0.8), (248, 109))
+
+# coordinates for the tiles
 tile_boxes = {
     0:(588,587,90,90),
     1:(535,589,47,90),
@@ -67,6 +84,7 @@ tile_boxes = {
 }
 
 def create_tile_rects():
+    """creates a pygame.Rect object correspoding to each tile"""
     rects = []
     for i in range(40):
         x,y,w,h = tile_boxes[i]

@@ -1,12 +1,10 @@
-#import Property
-
 class Player:
     #initialize all
     def __init__(self, name, token):
         #input from player
         self.playerName = name
         #name of token piece
-        self.tokenName = ""
+        self.tokenName = token
         self.bankBalance = 1000
         #position on board in regards to board array
 

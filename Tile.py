@@ -1,5 +1,7 @@
 import pygame
 import GUI
+from player import Player
+
 
 class Tile:
     """ An abstract representation of a Monopoly game tile
@@ -71,6 +73,7 @@ class ActionTile(Tile):
         super().__init__(position, name, can_be_bought, image)
 
         self._action = action
+        self._owner = Player("The Government", "")
 
     def get_action(self):
         """ Returns:
@@ -99,7 +102,7 @@ class PropertyTile(Tile):
             hotel_rent: An integer of the total amount of rent, if the property has a hotel
         """
     def __init__(self, position, name, group, cost, rent, house_rent_1, house_rent_2,
-                 house_rent_3, house_rent_4, hotel_rent, can_be_bought=True, image=None):
+                 house_rent_3, house_rent_4, hotel_rent, can_be_bought=True, image=None, owner=None):
 
         """ Creates an instance of PropertyTile with the arguments assigned to the attributes of PropertyTile.
 
@@ -126,6 +129,7 @@ class PropertyTile(Tile):
         self._hotel_rent = hotel_rent
         self._num_houses = 0
         self._num_hotel = 0
+        self._owner = Player("None", "Bank")
 
     def get_house_count(self):
         """ Returns:

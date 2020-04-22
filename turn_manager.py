@@ -1,3 +1,5 @@
+import random
+
 class TurnManager:
     """
     A class to manage the order of turns amongst game players.
@@ -38,3 +40,8 @@ class TurnManager:
         self._location += count
         self._location %= self._max
         return self._players[self._location]
+
+    def roll(self):
+        roll1, roll2 = random.randint(1,6), random.randint(1,6)
+        # check double roll here
+        return roll1, roll2

@@ -55,6 +55,11 @@ class Button:
         x,y = pygame.mouse.get_pos()
         return self.rect.collidepoint(x,y)
 
+    def flip(self):
+        temp = self.image1
+        self.image1 = self.image3
+        self.image2 = self.image3
+        self.image3 = temp
 
 
 '''

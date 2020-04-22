@@ -2,12 +2,16 @@ import json
 import pygame
 from tile import Tile, PropertyTile, ActionTile
 import GUI
-import target_tile
+import die
+import display_token
+import display_tile
+import buttons
 
 class Board:
 
     def __init__(self):
         self._tile_list = []
+        self._die = die.Die()
 
     def populate_board(self):
         '''fills up the list of tiles'''
@@ -60,7 +64,7 @@ class Board:
         pygame.display.set_caption("Property Tycoon")
 
         # create tile rects
-        self._tile_rects = target_tile.create_tile_rects()
+        self._tile_rects = display_tile.create_tile_rects()
 
 
     def draw_board(self, game):
@@ -68,4 +72,7 @@ class Board:
         self._display.fill(self._DISPLAY_COLOR)
         self._display.blit(self._background, (0, 0))
         self._display.blit(self._board_image, (0, 0))
-        target_tile.display_target_tile(game)
+        display_token.display_token(game)
+        display_tile.display_target_tile(game)
+        display_tile.display_current_tile(game)
+        #buttons.display_buttons(game)

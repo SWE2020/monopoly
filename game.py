@@ -1,5 +1,4 @@
 from random import random, randint
-import target_tile
 from turn_manager import TurnManager
 import GUI
 from actions import *
@@ -9,7 +8,7 @@ class Game:
     def __init__(self):
 
         self._players = []
-        self._tokens = ['boot', 'phone', 'hat', 'cat', 'goblet', 'spoon']
+        self._tokens = ["boot", "phone", "hat", "cat", "goblet", "spoon"]
         self.play_intro()
 
 
@@ -26,11 +25,11 @@ class Game:
         #pygame.mixer.music.load("soundtrack.mp3")
         #pygame.mixer.music.play(-1)
 
-        #num_players = GUI.game_intro()
-        num_players = 4
+        num_players = GUI.game_intro()
+        #num_players = 4
 
-        #player_names = GUI.select(num_players)
-        player_names = ["Ege", "Can", "Deniz", "Mert"]
+        player_names = GUI.select(num_players)
+        #player_names = ["Ege", "Kaleb", "Evan", "Sydney"]
 
         for i in range(num_players):
             new_player = Player(player_names[i], self._tokens[i])
