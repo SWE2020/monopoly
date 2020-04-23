@@ -75,4 +75,3 @@ class Board:
         display_token.display_token(game)
         display_tile.display_target_tile(game)
         display_tile.display_current_tile(game)
-        #buttons.display_buttons(game)

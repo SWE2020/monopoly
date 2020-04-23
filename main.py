@@ -15,8 +15,8 @@ def main():
         # do this while the turn is still going on
         while game.get_turns().status():
             rolling_phase(game)
-            #handle_events(game)
-            # update display
+            #action_phase(game)
+            #end_phase(game)
             game.get_turns().end_turn()
         # set curret player to next player; set status to True again
         game.get_turns().next()
@@ -47,6 +47,33 @@ def rolling_phase(game):
         board.draw_board(game)
         buttons.roll_button.show(display)
         pygame.display.update()
+
+def action_phase(game):
+    board = game.get_board()
+    display = board.get_display()
+    passed = False
+
+    while not passed:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.MOUSEBUTTONDOWN and buttons.buy_button.over():
+                print("bought")
+            if event.type == pygame.MOUSEBUTTONDOWN and buttons.pay_rent_button.over():
+                print("paid rent")
+
+        board.draw_board(game)
+        buttons.buy_button.show(display)
+        buttons.pay_rent_button.show(display)
+        pygame.display.update()
+
+# if the player passes on a property, time for auction
+def auction_phase(game):
+    pass
+
+def end_phase(game):
+    pass
 
 
 if __name__ == '__main__':
