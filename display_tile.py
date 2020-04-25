@@ -23,6 +23,7 @@ def display_target_tile(game):
             target_tile = board.get_tile_at(target_index)
 
             # display the target card
+            target_tile.get_image().set_alpha(255)
             display.blit(target_tile.get_image(), (685, 408))
 
             # display owner of the tile
@@ -32,12 +33,20 @@ def display_target_tile(game):
 
 def display_current_tile(game):
     """displays the tile on which the current player stands"""
+    # diplay current tile's property card on screen
     x,y = pygame.mouse.get_pos()
-    display = game.get_board()._display
+    display = game.get_board().get_display()
     current_position = game.get_turns().current().getPosition()
     current_tile = game.get_board().get_tile_at(current_position)
     current_image = current_tile.get_image()
-    display.blit(GUI.rescale(current_image, 0.8), (248, 109))
+    current_image.set_alpha(255)
+    display.blit(current_image, (230, 105))
+    # highlight current tile on the board
+    current_location = game.get_turns().current().getPosition()
+    rect = tile_boxes[current_location]
+    highlight = pygame.Surface((rect[2], rect[3]), pygame.SRCALPHA)
+    highlight.fill((255,0,0,175))
+    display.blit(highlight, (rect[0], rect[1]))
 
 # coordinates for the tiles
 tile_boxes = {

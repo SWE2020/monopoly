@@ -12,7 +12,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/GO.png"
   },
   {
     "Position": 2,
@@ -72,7 +72,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/IncomeTax.png"
   },
   {
     "Position": 6,
@@ -87,7 +87,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/StationCard.png"
   },
   {
     "Position": 7,
@@ -117,7 +117,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/OppKnocks.png"
   },
   {
     "Position": 9,
@@ -162,7 +162,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/JailSpot.png"
   },
   {
     "Position": 12,
@@ -192,7 +192,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/UtilityCard.png"
   },
   {
     "Position": 14,
@@ -237,7 +237,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/StationCard.png"
   },
   {
     "Position": 17,
@@ -267,7 +267,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/PotluckCard.png"
   },
   {
     "Position": 19,
@@ -312,7 +312,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/FreePark.png"
   },
   {
     "Position": 22,
@@ -342,7 +342,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/OppKnocks.png"
   },
   {
     "Position": 24,
@@ -387,7 +387,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/StationCard.png"
   },
   {
     "Position": 27,
@@ -432,7 +432,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/UtilityCard.png"
   },
   {
     "Position": 30,
@@ -462,7 +462,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/Jail.png"
   },
   {
     "Position": 32,
@@ -507,7 +507,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/PotluckCard.png"
   },
   {
     "Position": 35,
@@ -537,7 +537,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/StationCard.png"
   },
   {
     "Position": 37,
@@ -552,7 +552,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/OppKnocks.png"
   },
   {
     "Position": 38,
@@ -582,7 +582,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/SuperTax.png"
   },
   {
     "Position": 40,

@@ -5,7 +5,6 @@ from Deck import *
 from Bank import *
 from die import *
 from board import *
-#from Monopoly import Monopoly, TurnManager
 
 def transfer_money(FROM, TO, amount):
         """ Transfers money from a player to another player"""
@@ -32,14 +31,13 @@ def move(player, distance):
 
         #check if the player completed a full lap around the board
         if new_position > num_tiles:
-                new_position %= num_tiles
                 #we will have to get bank from the Game.bank when Game.py is implemented
                 bank1 = Bank(1000)
                 #invoke GO
                 GO(player, bank1)
 
         # update player's position to his new position
-        player.position = new_position
+        player.position = new_position % num_tiles
 
 def roll_dice(player):
         """
@@ -75,3 +73,10 @@ def go_to_jail(player):
         # teleport the player to the jail's position
         jail_position = 15
         player.setPosition(jail_position)
+
+
+def buy_property(player, tile):
+        cost = tile.get_cost()
+        player.setBankBalance(player.getBankBalance() - cost)
+        player.propertiesOwned.append(tile)
+        tile._owner = player

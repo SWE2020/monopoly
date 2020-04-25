@@ -6,6 +6,7 @@ import die
 import display_token
 import display_tile
 import buttons
+import player_screen
 
 class Board:
 
@@ -73,5 +74,6 @@ class Board:
         self._display.blit(self._background, (0, 0))
         self._display.blit(self._board_image, (0, 0))
         display_token.display_token(game)
-        display_tile.display_target_tile(game)
+        player_screen.display_player_screen(game)
         display_tile.display_current_tile(game)
+        display_tile.display_target_tile(game)

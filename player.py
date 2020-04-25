@@ -15,6 +15,7 @@ class Player:
         self.propertiesMortgaged = []
         self.hasWon = False
         self.inJail = False
+        self._passed_go_once = True
         jailTimeCount = 0
 
     def getPlayerName(self):
@@ -82,57 +83,14 @@ class Player:
     def setPropertiesMortgaged(self):
         return True
 
-    #checks to see if a player can purchase a property; will return false if the player doesn't have
-    #enough funds; else will return true, subtract property cost from player's bank account, and add
-    #property to list of player's properties
-    #dependent on implementation of property class
-    def buyProperty(property):
-        if(passedGoOnce):
-            bankBalance = self.getBankBalance
-            propertyPrice = property.getPrice()
-            if propertyPrice > bankBalance:
-                return false
-            else:
-                self.subtractFromBankBalance(propertyPrice)
-                self.addPropertyOwned(property.getDetails)
-                return true
-        else:
-            return false
-
     #add a property to the array of properties owned
-    def addPropertyOwned(propertiesOwned):
-        self.propertiesOwned.append(propertiesOwned)
+    def addPropertyOwned(prop):
+        self.propertiesOwned.append(prop)
 
     #should be called in GameManager after initial go-around?
     def passedGoOnce():
-        self.passedGoOnce = true
+        self.passedGoOnce = True
 
-    def passedGo():
-        self.bankBalance += 2000
-
-    def rollDice():
-        die = Die()
-        currRoll = die.roll()
-        self.diceRolls = self.diceRolls + 1
-        totalRoll = currRoll[0] + currRoll[1]
-        if currRoll[0] == currRoll[1]:
-            self.setPosition(totalRoll)
-            currRoll = die.roll()
-            self.diceRolls = self.diceRolls + 1
-            totalRoll = currRoll[0] + currRoll[1]
-            if currRoll[0] == currRoll[1]:
-                self.setPosition(totalRoll)
-                currRoll = die.roll()
-                self.diceRolls = self.diceRolls + 1
-                totalRoll = currRoll[0] + currRoll[1]
-            else:
-                self.setPosition(totalRoll)
-                if currRoll[0] == currRoll[1]:
-                    self.goToJail()
-                else:
-                    self.setPosition(totalRoll)
-        else:
-            self.setPosition(totalRoll)
 
     #returns true if successful, false if they dont have enough money
     #this is dependent on implementation of the Property class and how that will deal

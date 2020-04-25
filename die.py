@@ -1,4 +1,6 @@
 from random import randrange
+import pygame
+
 
 class Die:
 

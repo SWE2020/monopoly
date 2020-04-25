@@ -1,7 +1,8 @@
 from random import random, randint
 from turn_manager import TurnManager
+from player import Player
+from board import Board
 import GUI
-from actions import *
 
 class Game:
 
@@ -15,7 +16,7 @@ class Game:
         self._turns = TurnManager(self._players)
 
         self._board = Board()
-        self._board.populate_board()
+
         self._board.setup_board()
 
         self._is_over = False
@@ -25,11 +26,11 @@ class Game:
         #pygame.mixer.music.load("soundtrack.mp3")
         #pygame.mixer.music.play(-1)
 
-        num_players = GUI.game_intro()
-        #num_players = 4
+        #num_players = GUI.game_intro()
+        num_players = 4
 
-        player_names = GUI.select(num_players)
-        #player_names = ["Ege", "Kaleb", "Evan", "Sydney"]
+        #player_names = GUI.select(num_players)
+        player_names = ["Ege", "Kaleb", "Evan", "Sydney"]
 
         for i in range(num_players):
             new_player = Player(player_names[i], self._tokens[i])
@@ -59,6 +60,7 @@ class Game:
 
     def draw(self):
         self._board.draw_board(self)
+
 
 """
 if __name__ == "__main__":

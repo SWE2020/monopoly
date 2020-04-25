@@ -21,6 +21,7 @@ class Tile:
         self._position = position
         self._can_be_bought = can_be_bought
         self._image = GUI.utils.rescale(pygame.image.load(image), 0.20)
+        #self._image2 = GUI.utils.grayscale(self._image)
 
     def get_name(self):
         """ Returns:
@@ -41,6 +42,11 @@ class Tile:
         """ Returns:
             The image for tile"""
         return self._image
+
+    def get_image2(self):
+        """Returns:
+        The black and white image for the tile"""
+        return self._image2
 
 
 class ActionTile(Tile):
