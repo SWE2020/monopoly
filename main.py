@@ -53,37 +53,77 @@ def action_phase(game):
     current_player = game.get_turns().current()
     current_position = current_player.getPosition()
     current_tile = game.get_board().get_tile_at(current_position)
-
-    print(type(current_tile))
+    paid_rent = False
 
     while not passed:
+
+        board.draw_board(game)
+        mode = 0
+
+        if type(current_tile) == tile.PropertyTile:
+            # player owns the current tile
+            if current_tile._owner == current_player:
+                mode = 0
+                print("mode: ", mode)
+                # build house
+                # build hotel
+                buttons.button_end_turn.show(display)
+            # No one owns the current tile
+            elif current_tile._owner.getPlayerName() == "None":
+                mode = 1
+                print("mode: ", mode)
+                buttons.button_buy.show(display)
+                buttons.button_end_turn.show(display)
+            else:
+                mode = 2
+                print("mode: ", mode)
+                if not paid_rent:
+                    buttons.button_pay_rent.show(display)
+
+                buttons.button_end_turn.show(display)
+
+        if type(current_tile) == tile.ActionTile:
+
+                mode = 3
+                print("mode: ", mode)
+                buttons.button_end_turn.show(display)
+
+            # if oppknocks
+            # if potluck
+            # if jail
+            # if free parking
+            # if
+
+        # current tile is an Action Tile
+        if type(current_tile) == tile.ActionTile:
+            pass
+
         for event in pygame.event.get():
             check_quit(event)
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if type(current_tile) == tile.PropertyTile:
-                    if current_tile._owner == current_tile:
-                        pass
-                        # build house
-                        # build hotel
-                    if current_tile._owner.getPlayerName() == "None":
-                        # buy property
-                        # pass
-                        pass
+                if mode == 0:
+                    if buttons.button_end_turn.over():
+                        return buttons.button_end_turn_function(game)
+                if mode == 1:
+                    if buttons.button_buy.over():
+                        buttons.button_buy_function(game)
+                    if buttons.button_end_turn.over():
+                        return buttons.button_end_turn_function(game)
+                if mode == 2:
+                    if buttons.button_pay_rent.over():
+                        if paid_rent == False:
+                            buttons.button_pay_rent_function(game)
+                            paid_rent = True
+                    if buttons.button_end_turn.over():
+                        if paid_rent:
+                            return buttons.button_end_turn_function(game)
+                if mode == 3:
+                    if buttons.button_end_turn.over():
+                        return buttons.button_end_turn_function(game)
 
-                print(type(current_tile))
-                if buttons.button_end_turn.over():
-                    return passed
 
-
-
-
-        board.draw_board(game)
-        buttons.button_end_turn.show(display)
-        #buttons.buy_button.show(display)
-        #buttons.pay_rent_button.show(display)
         pygame.display.update()
 
-    return passed
 
 
 def builder_phase(game):

@@ -28,7 +28,7 @@ def display_target_tile(game):
 
             # display owner of the tile
             owner_string = "Owned by: " + target_tile._owner.getPlayerName()
-            owner_text = GUI.GameText((x,y), owner_string, (220,220,220), 33)
+            owner_text = GUI.GameText((952, 419), owner_string, (220,220,220), 33)
             owner_text.show(display)
 
 def display_current_tile(game):

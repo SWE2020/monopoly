@@ -27,7 +27,7 @@
     "3 houses": 90,
     "4 houses": 160,
     "1 hotel": 250,
-    "image": "GUI/images/property_cards/CS.png"
+    "image": "GUI/images/property_cards/PotluckCard.png"
   },
   {
     "Position": 3,
@@ -87,7 +87,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/StationCard.png"
+    "image": "GUI/images/property_cards/Brighton.png"
   },
   {
     "Position": 7,
@@ -237,7 +237,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/StationCard.png"
+    "image": "GUI/images/property_cards/Hove.png"
   },
   {
     "Position": 17,
@@ -387,7 +387,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/StationCard.png"
+    "image": "GUI/images/property_cards/Falmer.png"
   },
   {
     "Position": 27,
@@ -537,7 +537,7 @@
     "3 houses": null,
     "4 houses": null,
     "1 hotel": null,
-    "image": "GUI/images/property_cards/StationCard.png"
+    "image": "GUI/images/property_cards/Lewes.png"
   },
   {
     "Position": 37,
