@@ -1,5 +1,6 @@
 import pygame
 import GUI
+import tile
 
 def display_target_tile(game):
     """displays the tile that is targeted by the player's cursor and highlights that tile on the board"""
@@ -7,12 +8,16 @@ def display_target_tile(game):
     display = board.get_display()
     tile_rects = board._tile_rects
 
+    background = pygame.image.load("GUI/images/wall.png")
     x,y = pygame.mouse.get_pos()
 
     # if the mouse is currently on a tile
     for (target_index, rect) in enumerate(tile_rects):
 
         if rect.collidepoint(x,y):
+
+            # background
+            display.blit(background, (890,425))
 
             #highlight the tile
             highlight = pygame.Surface((rect[2], rect[3]), pygame.SRCALPHA)
@@ -25,11 +30,36 @@ def display_target_tile(game):
             # display the target card
             target_tile.get_image().set_alpha(255)
             display.blit(target_tile.get_image(), (685, 408))
+            print(target_tile.get_image())
 
             # display owner of the tile
             owner_string = "Owned by: " + target_tile._owner.getPlayerName()
-            owner_text = GUI.GameText((952, 419), owner_string, (220,220,220), 33)
+            owner_text = GUI.GameText((952, 458), owner_string, (40,40,40), 33)
             owner_text.show(display)
+
+            # number of houses and hotels
+            if type(target_tile) == tile.PropertyTile:
+                num_houses = "Number of houses: " + str(target_tile.get_house_count())
+                num_hotels = "Number of Hotels: " + str(target_tile.get_hotel_count())
+                house_text = GUI.GameText((952, 520), num_houses, (40,40,40), 25)
+                hotel_text = GUI.GameText((952, 555), num_hotels, (40,40,40), 25)
+                house_text.show(display)
+                hotel_text.show(display)
+
+                info1 = "Click on a tile to build a house on it."
+                info2 = "If you already have 4 houses, it will build a hotel."
+                info3 = "Shift-Click on a tile to mortgage that property."
+                info1_text = GUI.GameText((952, 680), info1, (40,40,40), 17)
+                info2_text = GUI.GameText((952, 700), info2, (40,40,40), 17)
+                info3_text = GUI.GameText((952, 720), info3, (40,40,40), 17)
+
+                info1_text.show(display)
+                info2_text.show(display)
+                info3_text.show(display)
+
+
+        # if a flag is false
+        #print("display current tile in this same format, put the above code in a func?")
 
 def display_current_tile(game):
     """displays the tile on which the current player stands"""

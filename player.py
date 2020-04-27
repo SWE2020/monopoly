@@ -1,21 +1,19 @@
 class Player:
-    #initialize all
+
     def __init__(self, name, token):
-        #input from player
         self.playerName = name
-        #name of token piece
         self.tokenName = token
         self.bankBalance = 1000
-        #position on board in regards to board array
 
         self.position = 0
-        #holds an array of Property objects
+
         self.propertiesOwned = []
-        #holds an array of Property objects
         self.propertiesMortgaged = []
+
         self.hasWon = False
         self.inJail = False
         self._passed_go_once = True
+        self._double_counter = 0
         jailTimeCount = 0
 
     def getPlayerName(self):

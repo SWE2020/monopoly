@@ -61,6 +61,17 @@ class Button:
         self.image2 = self.image3
         self.image3 = temp
 
+    def hide(self):
+        self.image1.set_alpha(0)
+        self.image2.set_alpha(0)
+        self.image3.set_alpha(0)
+
+    def unhide(self):
+        self.image1.set_alpha(255)
+        self.image2.set_alpha(255)
+        self.image3.set_alpha(255)
+
+
 
 '''
 TEST

@@ -3,6 +3,7 @@ from game import Game
 import buttons
 import GUI
 import tile
+import time
 pygame.init()
 
 def main():
@@ -33,8 +34,7 @@ def handle_events(game):
 def rolling_phase(game):
     board = game.get_board()
     display = board.get_display()
-    rolled = False
-    while not rolled:
+    while True:
         for event in pygame.event.get():
             check_quit(event)
             if event.type == pygame.MOUSEBUTTONDOWN and buttons.button_roll.over():
@@ -64,35 +64,30 @@ def action_phase(game):
             # player owns the current tile
             if current_tile._owner == current_player:
                 mode = 0
-                print("mode: ", mode)
                 # build house
                 # build hotel
                 buttons.button_end_turn.show(display)
             # No one owns the current tile
             elif current_tile._owner.getPlayerName() == "None":
                 mode = 1
-                print("mode: ", mode)
                 buttons.button_buy.show(display)
                 buttons.button_end_turn.show(display)
             else:
                 mode = 2
-                print("mode: ", mode)
                 if not paid_rent:
                     buttons.button_pay_rent.show(display)
 
                 buttons.button_end_turn.show(display)
 
         if type(current_tile) == tile.ActionTile:
-
                 mode = 3
-                print("mode: ", mode)
                 buttons.button_end_turn.show(display)
 
             # if oppknocks
+
             # if potluck
             # if jail
             # if free parking
-            # if
 
         # current tile is an Action Tile
         if type(current_tile) == tile.ActionTile:

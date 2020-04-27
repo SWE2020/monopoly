@@ -45,3 +45,6 @@ class TurnManager:
         roll1, roll2 = random.randint(1,6), random.randint(1,6)
         # check double roll here
         return roll1, roll2
+
+    def double_roll():
+        return 0

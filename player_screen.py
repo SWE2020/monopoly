@@ -35,6 +35,7 @@ def display_player_screen(game):
 
 
 
+
 # player screen tile coordinates
 y1 = 120
 dy = 77
