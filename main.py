@@ -10,8 +10,9 @@ def main():
     # init game
     game = Game()
     board = game.get_board()
-    ege = game._players[0]
+
     '''
+    ege = game._players[0]
     ege.propertiesOwned.append(board.get_tile_at(5))
     board.get_tile_at(5)._owner = ege
     ege.propertiesOwned.append(board.get_tile_at(15))
@@ -25,7 +26,6 @@ def main():
     ege.propertiesOwned.append(board.get_tile_at(28))
     board.get_tile_at(28)._owner = ege
     '''
-
     # iterate over players
     while not game.is_over():
         # do this while the turn is still going on

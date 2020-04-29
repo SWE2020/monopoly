@@ -4,6 +4,7 @@ from player import Player
 from board import Board
 import GUI
 import pygame
+import clock
 
 class Game:
 
@@ -25,16 +26,17 @@ class Game:
 
         self._last_roll = 0
         self._free_parking = 0
+        self._clock = clock.Clock()
 
     def play_intro(self):
-        #pygame.mixer.music.load("soundtrack.mp3")
-        #pygame.mixer.music.play(-1)
+        pygame.mixer.music.load("soundtrack.ogg")
+        pygame.mixer.music.play(-1)
 
-        num_players = GUI.game_intro()
-        #num_players = 4
+        #num_players = GUI.game_intro()
+        num_players = 4
 
-        player_names = GUI.select(num_players)
-        #player_names = ["Ege", "Kaleb", "Evan", "Sydney"]
+        #player_names = GUI.select(num_players)
+        player_names = ["Ege", "Kingsley", "Evan", "Kaleb"]
 
         for i in range(num_players):
             new_player = Player(player_names[i], self._tokens[i])

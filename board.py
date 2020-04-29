@@ -62,6 +62,7 @@ class Board:
         self._DISPLAY_SIZE = (1440,770)
         self._DISPLAY_COLOR = (110,110,110)
         self._display = pygame.display.set_mode(self._DISPLAY_SIZE)
+        #self._display = pygame.display.set_mode(self._DISPLAY_SIZE, pygame.FULLSCREEN) # full screen
         pygame.display.set_caption("Property Tycoon")
 
         # create tile rects
@@ -77,3 +78,4 @@ class Board:
         player_screen.display_player_screen(game)
         display_tile.display_current_tile(game)
         display_tile.display_target_tile(game)
+        game._clock.display_time(game)

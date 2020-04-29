@@ -47,7 +47,8 @@ def move(player, distance, game):
                 bank1 = Bank(1000)
                 GO(player, bank1)
 
-        player.position = new_position % num_tiles
+        new_position %= num_tiles
+        player.position = new_position
 
         # check GO TO JAIL
         GO_TO_JAIL = 30
@@ -130,29 +131,27 @@ def go_to_jail(game):
 
         # go to "go to jail tile" first
         jail_position = 30
+        pygame.draw.rect(display, (170,170,170), (145,480,400,75))
+        roll_string = "TIME TO GO TO JAIL!"
+        roll_text = GUI.GameText((174,496), roll_string, (20,20,20), 36)
+        roll_text.show(display)
         player.setPosition(jail_position)
         display_token.display_token(game)
         display_tile.display_current_tile(game)
         pygame.display.update()
-        ROLL_WAIT_TIME = 5000
-        pygame.time.wait(ROLL_WAIT_TIME)
+        WAIT_TIME = 2000
+        pygame.time.wait(WAIT_TIME)
 
         # update player's jail field
         player.inJail = True
         # teleport the player to the jail's position
         jail_position = 10
         player.setPosition(jail_position)
-        pygame.draw.rect(display, (170,170,170), (145,480,400,75))
-
-        # display roll output on screen
-        roll_string = "TIME TO GO TO JAIL!"
-        roll_text = GUI.GameText((174,496), roll_string, (20,20,20), 36)
-        roll_text.show(display)
         display_token.display_token(game)
         display_tile.display_current_tile(game)
 
         pygame.display.update()
-        ROLL_WAIT_TIME = 5000
+        ROLL_WAIT_TIME = 1200
         pygame.time.wait(ROLL_WAIT_TIME)
 
 
@@ -196,7 +195,7 @@ def free_park_collect(game):
         display_token.display_token(game)
         display_tile.display_current_tile(game)
         pygame.display.update()
-        WAIT_TIME = 7000
+        WAIT_TIME = 2000
         pygame.time.wait(WAIT_TIME)
 
         # transaction
@@ -220,5 +219,5 @@ def pay_tax(game):
         display_token.display_token(game)
         display_tile.display_current_tile(game)
         pygame.display.update()
-        WAIT_TIME = 7000
+        WAIT_TIME = 2000
         pygame.time.wait(WAIT_TIME)
