@@ -17,14 +17,23 @@ class TurnManager:
         self._direction = True
         self._location = 0
         self._max = len(players)
+        # True if the turn is still going in
         self._status = True
+        self._go_again = False
 
     def current(self):
         return self._players[self._location]
 
     def next(self):
+        self._go_again = False
         self._status = True
         return self.skip(count=0)
+
+    def previous(self):
+        self._go_again = False
+        self._status = True
+        self._location -= 1
+        self._location %= self._max
 
     def get_player(self, position):
         return self._players[position]
@@ -35,6 +44,10 @@ class TurnManager:
     def end_turn(self):
         self._status = False
 
+    def go_again():
+        self._status = True
+        self._go_again = False
+        
     def skip(self, count=0):
         count += 1
         self._location += count

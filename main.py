@@ -9,18 +9,36 @@ pygame.init()
 def main():
     # init game
     game = Game()
+    board = game.get_board()
+    ege = game._players[0]
+    '''
+    ege.propertiesOwned.append(board.get_tile_at(5))
+    board.get_tile_at(5)._owner = ege
+    ege.propertiesOwned.append(board.get_tile_at(15))
+    board.get_tile_at(15)._owner = ege
+    ege.propertiesOwned.append(board.get_tile_at(25))
+    board.get_tile_at(25)._owner = ege
+    ege.propertiesOwned.append(board.get_tile_at(35))
+    board.get_tile_at(35)._owner = ege
+    ege.propertiesOwned.append(board.get_tile_at(12))
+    board.get_tile_at(12)._owner = ege
+    ege.propertiesOwned.append(board.get_tile_at(28))
+    board.get_tile_at(28)._owner = ege
+    '''
 
     # iterate over players
     while not game.is_over():
-
         # do this while the turn is still going on
         while game.get_turns().status():
             rolling_phase(game)
             action_phase(game)
-            game.get_turns().end_turn()
+            builder_phase(game)
+            end_phase(game)
 
         # set current player to next player; set status to True again
         game.get_turns().next()
+        if game.get_turns()._go_again:
+            game.get_turns().go_again()
 
 
 def handle_events(game):
@@ -31,19 +49,42 @@ def handle_events(game):
         if event.type == pygame.MOUSEBUTTONDOWN:
             buttons.handle_button_events(game)
 
-def rolling_phase(game):
+def jail_phase(game):
     board = game.get_board()
     display = board.get_display()
+    current_player = game.get_turns().current()
+    bailed = False
     while True:
         for event in pygame.event.get():
             check_quit(event)
-            if event.type == pygame.MOUSEBUTTONDOWN and buttons.button_roll.over():
-                buttons.button_roll_function(game)
-                return "End Rolling Phase"
+            if event.type == pygame.MOUSEBUTTONDOWN and buttons.button_bail.over():
+                buttons.button_bail_function(game)
+                return "End Bail Phase"
 
         board.draw_board(game)
-        buttons.button_roll.show(display)
+        buttons.button_bail.show(display)
         pygame.display.update()
+
+
+
+def rolling_phase(game):
+    board = game.get_board()
+    display = board.get_display()
+    current_player = game.get_turns().current()
+
+    if current_player.inJail:
+        jail_phase(game)
+    else:
+        while True:
+            for event in pygame.event.get():
+                check_quit(event)
+                if event.type == pygame.MOUSEBUTTONDOWN and buttons.button_roll.over():
+                    buttons.button_roll_function(game)
+                    return "End Rolling Phase"
+
+            board.draw_board(game)
+            buttons.button_roll.show(display)
+            pygame.display.update()
 
 def action_phase(game):
     board = game.get_board()
@@ -76,7 +117,6 @@ def action_phase(game):
                 mode = 2
                 if not paid_rent:
                     buttons.button_pay_rent.show(display)
-
                 buttons.button_end_turn.show(display)
 
         if type(current_tile) == tile.ActionTile:
@@ -116,9 +156,7 @@ def action_phase(game):
                     if buttons.button_end_turn.over():
                         return buttons.button_end_turn_function(game)
 
-
         pygame.display.update()
-
 
 
 def builder_phase(game):
@@ -129,7 +167,9 @@ def auction_phase(game):
     pass
 
 def end_phase(game):
-    pass
+    if game.get_turns()._go_again:
+        game.get_turns().previous()
+    game.get_turns().end_turn()
 
 def check_quit(event):
     if event.type == pygame.QUIT:

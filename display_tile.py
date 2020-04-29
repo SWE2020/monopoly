@@ -30,7 +30,6 @@ def display_target_tile(game):
             # display the target card
             target_tile.get_image().set_alpha(255)
             display.blit(target_tile.get_image(), (685, 408))
-            print(target_tile.get_image())
 
             # display owner of the tile
             owner_string = "Owned by: " + target_tile._owner.getPlayerName()
@@ -39,7 +38,7 @@ def display_target_tile(game):
 
             # number of houses and hotels
             if type(target_tile) == tile.PropertyTile:
-                num_houses = "Number of houses: " + str(target_tile.get_house_count())
+                num_houses = "Number of Houses: " + str(target_tile.get_house_count())
                 num_hotels = "Number of Hotels: " + str(target_tile.get_hotel_count())
                 house_text = GUI.GameText((952, 520), num_houses, (40,40,40), 25)
                 hotel_text = GUI.GameText((952, 555), num_hotels, (40,40,40), 25)
@@ -57,6 +56,10 @@ def display_target_tile(game):
                 info2_text.show(display)
                 info3_text.show(display)
 
+            if target_tile._position == 20:
+                free_park_string = "Amount Gathered: " + str(game._free_parking) + "£ "
+                free_park_text = GUI.GameText((952, 520), free_park_string, (40,40,40), 27)
+                free_park_text.show(display)
 
         # if a flag is false
         #print("display current tile in this same format, put the above code in a func?")

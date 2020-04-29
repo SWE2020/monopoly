@@ -18,7 +18,7 @@ class Tile:
             Should not be instantiated directly. """
 
         self._name = name
-        self._position = position
+        self._position = position - 1
         self._can_be_bought = can_be_bought
         self._image = GUI.utils.rescale(pygame.image.load(image), 0.20)
         #self._image2 = GUI.utils.grayscale(self._image)
@@ -188,17 +188,45 @@ class PropertyTile(Tile):
             # print("You have purchased a hotel for " + self.get_name())
             return False
 
-    def get_rent(self):
+    def get_rent(self, game):
         """ Returns:
             The integer amount of rent that this property will incur, depending on the amount of houses or hotels
             purchased for this property. """
+        current_player = game.get_turns().current()
+        current_position = current_player.getPosition()
+        current_tile = game.get_board().get_tile_at(current_position)
+        owner = current_tile._owner
+
+
+        if current_tile._position == 5 or current_tile._position == 15 or current_tile._position == 25 or current_tile._position == 35:
+                return current_tile.station_rent(owner)
+        if current_tile._position == 12 or current_tile._position == 28:
+                last_roll = game._last_roll
+                return current_tile.utility_rent(owner, last_roll)
+
         if self.get_hotel_count():
-            # print("There is one hotel. The rent is: " + str(self._hotel_rent))
             return self._hotel_rent
         elif self.get_house_count():
-            # print("There are " + str(self.get_house_count()) +
-            #       " houses. Rent is: " + str(self._house_rent[self.get_house_count() - 1]))
             return self._house_rent[self.get_house_count() - 1]
         else:
-            # print("Nothing, base rent then: " + str(self._rent))
             return self._rent
+
+
+    def station_rent(self, owner):
+        "returns the rent for a station"
+        num_stations = 0
+        for t in owner.propertiesOwned:
+            if t._name == "Brighton Station" or t._name == "Falmer Station" or t._name == "Hove Station" or t._name == "Lewes Station":
+                num_stations += 1
+
+        return [0,25,50,100,200][num_stations]
+
+
+    def utility_rent(self, owner, last_roll):
+        "returns the rent for a utility"
+        num_utilities = 0
+        for t in owner.propertiesOwned:
+            if t._name == "Tesla Power Co" or t._name == "Edison Water":
+                num_utilities += 1
+
+        return last_roll * [0,4,10][num_utilities]
