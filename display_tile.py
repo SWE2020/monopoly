@@ -1,6 +1,7 @@
 import pygame
 import GUI
 import tile
+import actions
 
 def display_target_tile(game):
     """displays the tile that is targeted by the player's cursor and highlights that tile on the board"""
@@ -61,8 +62,22 @@ def display_target_tile(game):
                 free_park_text = GUI.GameText((952, 520), free_park_string, (40,40,40), 27)
                 free_park_text.show(display)
 
-        # if a flag is false
-        #print("display current tile in this same format, put the above code in a func?")
+            for event in pygame.event.get():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    print("BUILD!")
+                    actions.build(game, target_tile)
+
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_m:
+                        print("Mortgage tile")
+                        pygame.quit()
+                        quit()
+                    if event.key == pygame.K_d:
+                        actions.demolish(game, target_tile)
+                    if event.key == pygame.K_s:
+                        if type(target_tile) == tile.PropertyTile:
+                            target_tile.sell_to_bank(game)
+
 
 def display_current_tile(game):
     """displays the tile on which the current player stands"""

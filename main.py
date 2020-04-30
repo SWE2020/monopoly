@@ -4,6 +4,7 @@ import buttons
 import GUI
 import tile
 import time
+import bidder
 pygame.init()
 
 def main():
@@ -11,21 +12,13 @@ def main():
     game = Game()
     board = game.get_board()
 
-    '''
+    props = [6,8,9,5,10]
+
     ege = game._players[0]
-    ege.propertiesOwned.append(board.get_tile_at(5))
-    board.get_tile_at(5)._owner = ege
-    ege.propertiesOwned.append(board.get_tile_at(15))
-    board.get_tile_at(15)._owner = ege
-    ege.propertiesOwned.append(board.get_tile_at(25))
-    board.get_tile_at(25)._owner = ege
-    ege.propertiesOwned.append(board.get_tile_at(35))
-    board.get_tile_at(35)._owner = ege
-    ege.propertiesOwned.append(board.get_tile_at(12))
-    board.get_tile_at(12)._owner = ege
-    ege.propertiesOwned.append(board.get_tile_at(28))
-    board.get_tile_at(28)._owner = ege
-    '''
+    for prop in props:
+        ege.propertiesOwned.append(board.get_tile_at(prop))
+        board.get_tile_at(prop)._owner = ege
+
     # iterate over players
     while not game.is_over():
         # do this while the turn is still going on
@@ -95,6 +88,7 @@ def action_phase(game):
     current_position = current_player.getPosition()
     current_tile = game.get_board().get_tile_at(current_position)
     paid_rent = False
+    bought_something = False
 
     while not passed:
 
@@ -105,11 +99,9 @@ def action_phase(game):
             # player owns the current tile
             if current_tile._owner == current_player:
                 mode = 0
-                # build house
-                # build hotel
                 buttons.button_end_turn.show(display)
             # No one owns the current tile
-            elif current_tile._owner.getPlayerName() == "None":
+            elif current_tile._owner.getPlayerName() == "The Bank":
                 mode = 1
                 buttons.button_buy.show(display)
                 buttons.button_end_turn.show(display)
@@ -123,12 +115,6 @@ def action_phase(game):
                 mode = 3
                 buttons.button_end_turn.show(display)
 
-            # if oppknocks
-
-            # if potluck
-            # if jail
-            # if free parking
-
         # current tile is an Action Tile
         if type(current_tile) == tile.ActionTile:
             pass
@@ -138,12 +124,13 @@ def action_phase(game):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if mode == 0:
                     if buttons.button_end_turn.over():
-                        return buttons.button_end_turn_function(game)
+                        return "end turn"
                 if mode == 1:
                     if buttons.button_buy.over():
                         buttons.button_buy_function(game)
+                        bought_something = True
                     if buttons.button_end_turn.over():
-                        return buttons.button_end_turn_function(game)
+                        return buttons.button_end_turn_function(game, bought_something)
                 if mode == 2:
                     if buttons.button_pay_rent.over():
                         if paid_rent == False:
@@ -151,20 +138,12 @@ def action_phase(game):
                             paid_rent = True
                     if buttons.button_end_turn.over():
                         if paid_rent:
-                            return buttons.button_end_turn_function(game)
+                            return "end turn"
                 if mode == 3:
                     if buttons.button_end_turn.over():
-                        return buttons.button_end_turn_function(game)
+                        return "end turn"
 
         pygame.display.update()
-
-
-def builder_phase(game):
-    pass
-
-# if the player passes on a property, time for auction
-def auction_phase(game):
-    pass
 
 def end_phase(game):
     if game.get_turns()._go_again:

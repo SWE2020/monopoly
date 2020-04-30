@@ -3,7 +3,7 @@ class Player:
     def __init__(self, name, token):
         self.playerName = name
         self.tokenName = token
-        self.bankBalance = 1000
+        self.bankBalance = 1500
 
         self.position = 0
 
@@ -12,7 +12,7 @@ class Player:
 
         self.hasWon = False
         self.inJail = False
-        self._passed_go_once = True
+        self._passed_go_once = False
         self._double_counter = 0
         jailTimeCount = 0
 
@@ -33,6 +33,12 @@ class Player:
 
     def setBankBalance(self, balance):
         self.bankBalance = balance
+
+    def addBankBalance(self, amount):
+        self.bankBalance += amount
+
+    def removeBankBalance(self, amount):
+        self.bankBalance -= amount
 
     def getPosition(self):
         return self.position
@@ -82,7 +88,7 @@ class Player:
         return True
 
     #add a property to the array of properties owned
-    def addPropertyOwned(prop):
+    def addPropertyOwned(self, prop):
         self.propertiesOwned.append(prop)
 
     #should be called in GameManager after initial go-around?

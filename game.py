@@ -12,13 +12,14 @@ class Game:
 
         self._players = []
         self._tokens = ["boot", "phone", "hat", "cat", "goblet", "spoon"]
+
+        self._MUSIC = False
+        self._TESTING = True
+
         self.play_intro()
 
-
         self._turns = TurnManager(self._players)
-
         self._board = Board()
-
         self._board.setup_board()
 
         self._is_over = False
@@ -28,20 +29,22 @@ class Game:
         self._free_parking = 0
         self._clock = clock.Clock()
 
-    def play_intro(self):
-        pygame.mixer.music.load("soundtrack.ogg")
-        pygame.mixer.music.play(-1)
+    def play_intro(self, music=False, testing=False):
 
-        #num_players = GUI.game_intro()
-        num_players = 4
+        if self._MUSIC:
+            pygame.mixer.music.load("soundtrack.ogg")
+            pygame.mixer.music.play(-1)
 
-        #player_names = GUI.select(num_players)
-        player_names = ["Ege", "Kingsley", "Evan", "Kaleb"]
+        if self._TESTING:
+            num_players = 3
+            player_names = ["Ege", "Kingsley", "Evan"]
+        else:
+            num_players = GUI.game_intro()
+            player_names = GUI.select(num_players)
 
         for i in range(num_players):
             new_player = Player(player_names[i], self._tokens[i])
             self._players.append(new_player)
-
 
     def get_players(self):
         return self._players

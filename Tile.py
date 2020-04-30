@@ -14,7 +14,6 @@ class Tile:
 
     def __init__(self, position, name, can_be_bought, image):
         """ Creates an instance of the Tile object
-
             Should not be instantiated directly. """
 
         self._name = name
@@ -47,7 +46,6 @@ class Tile:
         """Returns:
         The black and white image for the tile"""
         return self._image2
-
 
 class ActionTile(Tile):
     """ A Monopoly game tile that triggers special interactions within the game.
@@ -135,7 +133,7 @@ class PropertyTile(Tile):
         self._hotel_rent = hotel_rent
         self._num_houses = 0
         self._num_hotel = 0
-        self._owner = Player("None", "Bank")
+        self._owner = Player("The Bank", "The Bank")
 
     def get_house_count(self):
         """ Returns:
@@ -158,7 +156,7 @@ class PropertyTile(Tile):
             Returns:
                 A boolean indicating whether a house has been successfully added to the property.
                 True, if there are less than 4 houses. False, otherwise.  """
-        if self._num_houses != 4:
+        if self._num_houses != 4 and self._num_hotel == 0:
             self._num_houses += 1
             # print("You have purchased a house for " + self.get_name())
             return True
@@ -188,6 +186,26 @@ class PropertyTile(Tile):
             # print("You have purchased a hotel for " + self.get_name())
             return False
 
+    def demolish(self):
+        """
+        Demolish a hotel. If there is no hotel, demolish a single house. If there are no houses, do nothing.
+        Returns:
+            the refund price for building (int)
+        """
+        refund = 0
+        if self._num_hotel == 1:
+            self._num_hotel = 0
+            self._num_houses = 4
+            refund = self._cost
+        else:
+            if self._num_houses != 0:
+                self._num_houses -= 1
+                refund = self._cost
+            else:
+                refund = 0
+
+        return refund
+
     def get_rent(self, game):
         """ Returns:
             The integer amount of rent that this property will incur, depending on the amount of houses or hotels
@@ -198,19 +216,21 @@ class PropertyTile(Tile):
         owner = current_tile._owner
 
 
-        if current_tile._position == 5 or current_tile._position == 15 or current_tile._position == 25 or current_tile._position == 35:
+        if current_tile._group == 'Station':
                 return current_tile.station_rent(owner)
-        if current_tile._position == 12 or current_tile._position == 28:
+        elif current_tile._group == 'Utilities':
                 last_roll = game._last_roll
                 return current_tile.utility_rent(owner, last_roll)
-
-        if self.get_hotel_count():
-            return self._hotel_rent
-        elif self.get_house_count():
-            return self._house_rent[self.get_house_count() - 1]
         else:
-            return self._rent
-
+            if self.get_hotel_count():
+                return self._hotel_rent
+            elif self.get_house_count():
+                return self._house_rent[self.get_house_count() - 1]
+            else:
+                if self.check_full_group(game):
+                    return 2 * self._rent
+                else:
+                    return self._rent
 
     def station_rent(self, owner):
         "returns the rent for a station"
@@ -230,3 +250,30 @@ class PropertyTile(Tile):
                 num_utilities += 1
 
         return last_roll * [0,4,10][num_utilities]
+
+    def check_full_group(self, game):
+        """
+        Checks if the current player owns every tile belonging to this tile's group.
+        """
+        board = game.get_board()
+        group_info = board.get_group_info()
+
+        current_player = game.get_turns().current()
+
+        tiles_in_the_group = board._group_info[self._group]
+
+        all_clear = True
+
+        for t in tiles_in_the_group:
+            if t._owner != current_player:
+                all_clear = False
+
+        return all_clear
+
+
+    def sell_to_bank(self, game):
+        current_player = game.get_turns().current()
+        if self._owner == current_player and self.get_house_count() == 0 and self.get_hotel_count() == 0:
+            self._owner = Player("The Bank", "The Bank")
+            prop_cost = self.get_cost()
+            current_player.addBankBalance(prop_cost)

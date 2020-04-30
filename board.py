@@ -1,6 +1,7 @@
 import json
 import pygame
-from tile import Tile, PropertyTile, ActionTile
+
+import tile
 import GUI
 import die
 import display_token
@@ -12,7 +13,6 @@ class Board:
 
     def __init__(self):
         self._tile_list = []
-        self._die = die.Die()
 
     def populate_board(self):
         '''fills up the list of tiles'''
@@ -37,10 +37,10 @@ class Board:
         hotel = json_tile['1 hotel']
         image = json_tile['image']
         if can_be_bought:
-            tile = PropertyTile(position, name, group, cost, rent, rent1, rent2, rent3, rent4, hotel, can_be_bought, image)
+            t = tile.PropertyTile(position, name, group, cost, rent, rent1, rent2, rent3, rent4, hotel, can_be_bought, image)
         else:
-            tile = ActionTile(position, name, action, can_be_bought, image)
-        return tile
+            t = tile.ActionTile(position, name, action, can_be_bought, image)
+        return t
 
     def get_tile_list(self):
         return self._tile_list
@@ -50,6 +50,19 @@ class Board:
 
     def get_display(self):
         return self._display
+
+    def get_group_info(self):
+        """
+        Returns a dictionary Group -> [Tile]
+        """
+        groups = dict()
+        for t in self._tile_list:
+            if type(t) == tile.PropertyTile:
+                groups[t._group] = []
+        for t in self._tile_list:
+            if type(t) == tile.PropertyTile:
+                groups[t._group].append(t)
+        return groups
 
     def setup_board(self):
         self.populate_board()
@@ -67,10 +80,10 @@ class Board:
 
         # create tile rects
         self._tile_rects = display_tile.create_tile_rects()
-
+        self._group_info = self.get_group_info()
 
     def draw_board(self, game):
-        ''' do this every frame'''
+        ''' draw these every frame'''
         self._display.fill(self._DISPLAY_COLOR)
         self._display.blit(self._background, (0, 0))
         self._display.blit(self._board_image, (0, 0))

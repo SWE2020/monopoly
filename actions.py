@@ -1,13 +1,13 @@
 # Import all other classes
-from player import *
-from tile import *
-from Deck import *
-from Bank import *
-from die import *
-from board import *
+import player
+import tile
+import board
 import display_token
 import display_tile
-import time
+import bidder
+
+import pygame
+import GUI
 
 def pay_rent(game):
         current_player = game.get_turns().current()
@@ -19,18 +19,16 @@ def pay_rent(game):
         if not owner.inJail:
             transfer_money(current_player, owner, amount)
 
-def transfer_money(FROM, TO, amount):
+def transfer_money(player_from, player_to, amount):
         """ Transfers money from a player to another player"""
-        FROM.bankBalance -= amount
-        TO.bankBalance += amount
-        # check if bankrupt?
+        player_from.bankBalance -= amount
+        player_to.bankBalance += amount
 
 
-def GO(player, bank):
+def GO(player):
         """Call this function when a player completes a full circle"""
-        GO_money = 200
-        bank.withdraw(GO_money)
-        player.bankBalance += GO_money
+        GO_MONEY = 200
+        player.bankBalance += GO_MONEY
 
 def move(player, distance, game):
         """
@@ -43,9 +41,9 @@ def move(player, distance, game):
         new_position = player.position + distance
 
         #check if the player completed a full lap around the board
-        if new_position > num_tiles:
-                bank1 = Bank(1000)
-                GO(player, bank1)
+        if new_position >= num_tiles:
+                player._passed_go_once = True
+                GO(player)
 
         new_position %= num_tiles
         player.position = new_position
@@ -55,21 +53,16 @@ def move(player, distance, game):
         if new_position == GO_TO_JAIL:
                 go_to_jail(game)
 
-
         # check FREE PARK
         FREE_PARK = 20
         if new_position == FREE_PARK:
                 free_park_collect(game)
-
 
         # check TAX
         TAX1 = 4
         TAX2 = 38
         if new_position == TAX1 or new_position == TAX2:
                 pay_tax(game)
-
-
-
 
 def roll_dice(game):
         """
@@ -119,9 +112,6 @@ def roll_dice(game):
                 game.get_turns()._go_again = True
         move(player, distance, game)
 
-
-
-
 def go_to_jail(game):
         """
         Send the current player to jail.
@@ -156,13 +146,18 @@ def go_to_jail(game):
 
 
 def buy_property(player, tile):
+        """
+        Player player buys the Tile tile.
+        """
         cost = tile.get_cost()
-        #print("cost: ", cost, " player.getBankBalance(): ", player.getBankBalance(), " tile: ", tile._name)
         player.setBankBalance(player.getBankBalance() - cost)
         player.propertiesOwned.append(tile)
         tile._owner = player
 
 def buy_property(game):
+        """
+        Current player buys the property he is on.
+        """
         current_player = game.get_turns().current()
         current_position = current_player.getPosition()
         current_tile = game.get_board().get_tile_at(current_position)
@@ -173,6 +168,9 @@ def buy_property(game):
         current_tile._owner = current_player
 
 def pay_bail(game):
+        """
+        Player pays 50 to get out of jail.
+        """
         current_player = game.get_turns().current()
         BAIL_COST = 50
         game._free_parking += BAIL_COST
@@ -184,6 +182,9 @@ def pay_bail(game):
         current_player.inJail = False
 
 def free_park_collect(game):
+        """
+        Give all free parking money to current player.
+        """
         current_player = game.get_turns().current()
         display = game.get_board().get_display()
 
@@ -205,6 +206,10 @@ def free_park_collect(game):
 
 
 def pay_tax(game):
+        """
+        Current player pays TAX.
+        Puts that amount into free parking.
+        """
         current_player = game.get_turns().current()
         display = game.get_board().get_display()
 
@@ -221,3 +226,54 @@ def pay_tax(game):
         pygame.display.update()
         WAIT_TIME = 2000
         pygame.time.wait(WAIT_TIME)
+
+def build(game, target_tile):
+        """
+        Builds a house on the target tile.
+        If it has 4 houses, builds a hotel instead.
+        """
+        current_player = game.get_turns().current()
+        current_position = current_player.getPosition()
+
+        if type(target_tile) == tile.PropertyTile and target_tile.check_full_group(game):
+                if target_tile.get_hotel_count() == 0:
+                        if target_tile.get_house_count() != 4:
+                                target_tile.add_house()
+                        else:
+                                target_tile.add_hotel()
+
+                        building_cost = target_tile.get_cost()
+                        current_player.removeBankBalance(building_cost)
+
+
+
+
+def demolish(game, target_tile):
+        """
+        Removes a hotel from the target tile.
+        If there is no hotel, removes a single house.
+        The player gets a refund.
+        """
+        current_player = game.get_turns().current()
+        current_position = current_player.getPosition()
+
+        if type(target_tile) == tile.PropertyTile:
+                refund = target_tile.demolish()
+                print("refund: ", refund)
+                current_player.addBankBalance(refund)
+
+
+def end_turn(game, bought_something):
+        if bought_something:
+                return "end turn"
+        else:
+                current_player = game.get_turns().current()
+                current_position = current_player.getPosition()
+                current_tile = game.get_board().get_tile_at(current_position)
+
+                prop_bidder = bidder.Bidder(game)
+                max_bidder, max_bid = prop_bidder.bid_all()
+
+                max_bidder.removeBankBalance(max_bid)
+                max_bidder.addPropertyOwned(current_tile)
+                current_tile._owner = max_bidder
