@@ -11,7 +11,9 @@ class Player:
         self.propertiesMortgaged = []
 
         self.hasWon = False
+        self.isBankrupt = False
         self.inJail = False
+
         self._passed_go_once = False
         self._double_counter = 0
         jailTimeCount = 0
@@ -72,11 +74,7 @@ class Player:
     #return the array of properties owned
     def getPropertiesOwned(self):
         # Changed this so that we could get the names ofo the properties owned
-        #return self.propertiesOwned
-        empty = []
-        for i in self.propertiesOwned:
-            empty.append(i.get_name())
-        return empty
+        return self.propertiesOwned
 
     def setPropertiesOwned(self):
         return True
@@ -87,14 +85,26 @@ class Player:
     def setPropertiesMortgaged(self):
         return True
 
+    def has_no_cash(self):
+        return self.getBankBalance() < 0
+
     #add a property to the array of properties owned
     def addPropertyOwned(self, prop):
         self.propertiesOwned.append(prop)
 
     #should be called in GameManager after initial go-around?
-    def passedGoOnce():
+    def passedGoOnce(self):
         self.passedGoOnce = True
 
+    def calculate_assets(self):
+        total_assets = 0
+        # cash
+        total_assets += self.getBankBalance()
+        # properties and houses
+        for prop in self.getPropertiesOwned():
+            total_assets += prop.property_value()
+
+        return int(total_assets)
 
     #returns true if successful, false if they dont have enough money
     #this is dependent on implementation of the Property class and how that will deal
@@ -108,3 +118,11 @@ class Player:
             self.subtractFromBankBalance(price)
             property.addHotel()
             return true
+
+
+class AI(Player):
+        def __init__(self, name, token):
+            super().__init__(name, token)
+
+        def avoid_bankruptcy(self):
+            pass

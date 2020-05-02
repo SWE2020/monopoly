@@ -20,6 +20,7 @@ class Tile:
         self._position = position - 1
         self._can_be_bought = can_be_bought
         self._image = GUI.utils.rescale(pygame.image.load(image), 0.20)
+        self._mortgaged = False
         #self._image2 = GUI.utils.grayscale(self._image)
 
     def get_name(self):
@@ -134,6 +135,7 @@ class PropertyTile(Tile):
         self._num_houses = 0
         self._num_hotel = 0
         self._owner = Player("The Bank", "The Bank")
+        self._mortgaged  = False
 
     def get_house_count(self):
         """ Returns:
@@ -275,5 +277,16 @@ class PropertyTile(Tile):
         current_player = game.get_turns().current()
         if self._owner == current_player and self.get_house_count() == 0 and self.get_hotel_count() == 0:
             self._owner = Player("The Bank", "The Bank")
-            prop_cost = self.get_cost()
+            current_player.getPropertiesOwned().remove(self)
+            if self._mortgaged:
+                prop_cost = int(self.get_cost() / 2)
+                self._mortgaged = False
+            else:
+                prop_cost = self.get_cost()
             current_player.addBankBalance(prop_cost)
+
+    def property_value(self):
+        if self._mortgaged:
+            return self._cost / 2
+        else:
+            return self._cost + self.get_house_count() * self._cost + self.get_hotel_count() * self._cost

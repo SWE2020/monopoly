@@ -13,7 +13,7 @@ def display_player_screen(game):
 
     # balance
     player_cash = current_player.bankBalance
-    cash_string = "Total Cash:  " + "£" +str(player_cash)
+    cash_string = "Total Cash:  " + "£" +str(player_cash) + " | Total Assets: " + str(current_player.calculate_assets())+ "£ "
     player_text = GUI.GameText((700,60), cash_string, (255,255,255), 36)
     player_text.show(display)
 
@@ -25,16 +25,21 @@ def display_player_screen(game):
 
     for (i, index) in enumerate(indices):
         current_tile = tiles[index]
+        x,y = coordinates[i]
         image = current_tile._image
         if current_tile._owner != current_player:
             image.set_alpha(35)
         else:
             image.set_alpha(255)
-        x,y = coordinates[i]
         display.blit(GUI.rescale(image, 0.21), (x,y))
+        if current_tile._owner == current_player and current_tile._mortgaged:
+            mortgage_image.set_alpha(255)
+            display.blit(mortgage_image, (x-16,y))
 
 
 
+
+mortgage_image = GUI.rescale(pygame.image.load("GUI/images/mortgage.png"), 0.12)
 
 # player screen tile coordinates
 y1 = 120

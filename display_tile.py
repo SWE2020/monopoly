@@ -31,6 +31,9 @@ def display_target_tile(game):
             # display the target card
             target_tile.get_image().set_alpha(255)
             display.blit(target_tile.get_image(), (685, 408))
+            if target_tile._mortgaged:
+                display.blit(mortgage_image, (685, 462))
+
 
             # display owner of the tile
             owner_string = "Owned by: " + target_tile._owner.getPlayerName()
@@ -64,19 +67,19 @@ def display_target_tile(game):
 
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    print("BUILD!")
                     actions.build(game, target_tile)
 
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_m:
-                        print("Mortgage tile")
-                        pygame.quit()
-                        quit()
+                        actions.mortgage(game, target_tile)
+                    if event.key == pygame.K_u:
+                        actions.unmortgage(game, target_tile)
                     if event.key == pygame.K_d:
                         actions.demolish(game, target_tile)
                     if event.key == pygame.K_s:
                         if type(target_tile) == tile.PropertyTile:
                             target_tile.sell_to_bank(game)
+
 
 
 def display_current_tile(game):
@@ -95,6 +98,9 @@ def display_current_tile(game):
     highlight = pygame.Surface((rect[2], rect[3]), pygame.SRCALPHA)
     highlight.fill((255,0,0,175))
     display.blit(highlight, (rect[0], rect[1]))
+
+
+mortgage_image = GUI.rescale(pygame.image.load("GUI/images/mortgage.png"), 0.35)
 
 # coordinates for the tiles
 tile_boxes = {

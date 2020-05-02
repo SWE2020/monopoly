@@ -19,3 +19,7 @@ class Clock:
                 time_string = self.get_game_time()
                 time_text = GUI.GameText((20,700), time_string, (40,40,40), 34)
                 time_text.show(display)
+
+        def abridged_check(self, game):
+                if self.get_game_time() > game._time_limit:
+                        game.terminate()

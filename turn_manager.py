@@ -47,17 +47,19 @@ class TurnManager:
     def go_again():
         self._status = True
         self._go_again = False
-        
+
     def skip(self, count=0):
         count += 1
         self._location += count
         self._location %= self._max
         return self._players[self._location]
 
+    def remove_current_player(self):
+        self._players.pop(self._location)
+        self._max -= 1
+        if self._location == self._max:
+            self._location -= 1
+
     def roll(self):
         roll1, roll2 = random.randint(1,6), random.randint(1,6)
-        # check double roll here
         return roll1, roll2
-
-    def double_roll():
-        return 0

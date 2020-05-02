@@ -14,10 +14,18 @@ def pay_rent(game):
         current_position = current_player.getPosition()
         current_tile = game.get_board().get_tile_at(current_position)
         owner = current_tile._owner
-        amount = current_tile.get_rent(game)
+        rent = current_tile.get_rent(game)
+
+        total_assets = current_player.calculate_assets()
+
+        if rent > current_player.getBankBalance():
+                bankrupt(game)
+
+
         #print(current_player.getPlayerName(), " owner: ", owner.getPlayerName(), "tile: ", current_tile._name, "tile._position: ", current_tile._position , "amount: ", amount)
-        if not owner.inJail:
-            transfer_money(current_player, owner, amount)
+        if owner.inJail == False and current_tile._mortgaged == False:
+            transfer_money(current_player, owner, rent)
+
 
 def transfer_money(player_from, player_to, amount):
         """ Transfers money from a player to another player"""
@@ -235,6 +243,9 @@ def build(game, target_tile):
         current_player = game.get_turns().current()
         current_position = current_player.getPosition()
 
+        if target_tile._mortgaged or current_player.inJail:
+                return "cannot build"
+
         if type(target_tile) == tile.PropertyTile and target_tile.check_full_group(game):
                 if target_tile.get_hotel_count() == 0:
                         if target_tile.get_house_count() != 4:
@@ -257,13 +268,19 @@ def demolish(game, target_tile):
         current_player = game.get_turns().current()
         current_position = current_player.getPosition()
 
+        if current_player.inJail:
+                return "cannot demolish in jail"
+
         if type(target_tile) == tile.PropertyTile:
                 refund = target_tile.demolish()
-                print("refund: ", refund)
                 current_player.addBankBalance(refund)
 
 
 def end_turn(game, bought_something):
+        """
+        Call this when the player clicks on End Turn.
+        If no properties are bought, starts the bidding system.
+        """
         if bought_something:
                 return "end turn"
         else:
@@ -277,3 +294,68 @@ def end_turn(game, bought_something):
                 max_bidder.removeBankBalance(max_bid)
                 max_bidder.addPropertyOwned(current_tile)
                 current_tile._owner = max_bidder
+
+
+def bankrupt(game):
+        """
+        Removes current player from the game.
+        All assets are given to the bank.
+        """
+        current_player = game.current_player()
+        display = game.get_display()
+
+        for prop in current_player.getPropertiesOwned():
+                prop._num_houses = 0
+                prop._num_hotel = 0
+                prop._owner = player.Player("The Bank", "The Bank")
+
+        pygame.draw.rect(display, (170,170,170), (145,480,400,75))
+        out_string = current_player.getPlayerName() + " is Bankrupt!"
+        out_text = GUI.GameText((187,496), out_string, (20,20,20), 36)
+        out_text.show(display)
+        display_token.display_token(game)
+        display_tile.display_current_tile(game)
+        pygame.display.update()
+        WAIT_TIME = 2000
+        pygame.time.wait(WAIT_TIME)
+
+        current_player.isBankrupt = True
+
+def bankruptcy_check(game):
+        """
+        Check if player has negative cash.
+        Bankrupt him if he does.
+        """
+        current_player = game.current_player()
+        if current_player.has_no_cash():
+                bankrupt(game)
+
+def concede(game):
+        bankrupt(game)
+
+def mortgage(game, target_tile):
+        """
+        Current player mortgages the tile he is on.
+        Gains half of the tile cost.
+        """
+        if type(target_tile) != tile.PropertyTile:
+                return None
+        current_player = game.current_player()
+        if target_tile._mortgaged == False and target_tile.get_house_count() == 0 and target_tile.get_hotel_count() == 0 and target_tile._owner == current_player:
+                gains = int(target_tile._cost / 2)
+                current_player.addBankBalance(gains)
+                target_tile._mortgaged = True
+
+def unmortgage(game, target_tile):
+        """
+        Current player unmortgages the tile he is on.
+        Pays half of the tile cost.
+        """
+        if type(target_tile) != tile.PropertyTile:
+                return None
+
+        current_player = game.current_player()
+        if target_tile._mortgaged and target_tile._owner == current_player:
+                unmortgage_cost = int(target_tile._cost / 2)
+                current_player.removeBankBalance(unmortgage_cost)
+                target_tile._mortgaged = False

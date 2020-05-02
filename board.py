@@ -53,7 +53,8 @@ class Board:
 
     def get_group_info(self):
         """
-        Returns a dictionary Group -> [Tile]
+        Returns a dictionary Group -> list of tiles.
+        Use this to access all tiles that belong to a certain group.
         """
         groups = dict()
         for t in self._tile_list:
@@ -65,6 +66,10 @@ class Board:
         return groups
 
     def setup_board(self):
+        """
+        Called once before the game begins.
+        Sets up the board, display and images to be used.
+        """
         self.populate_board()
 
         # load images
@@ -83,7 +88,9 @@ class Board:
         self._group_info = self.get_group_info()
 
     def draw_board(self, game):
-        ''' draw these every frame'''
+        """
+        Draw these every frame.
+        """
         self._display.fill(self._DISPLAY_COLOR)
         self._display.blit(self._background, (0, 0))
         self._display.blit(self._board_image, (0, 0))
@@ -92,3 +99,4 @@ class Board:
         display_tile.display_current_tile(game)
         display_tile.display_target_tile(game)
         game._clock.display_time(game)
+        buttons.button_concede.show(self._display)

@@ -21,3 +21,7 @@ def button_end_turn_function(game, bought_something):
 button_bail = Button((250,520), "GUI/images/buttons/button_bail_1.png", "GUI/images/buttons/button_bail_2.png", "GUI/images/buttons/button_bail_1.png")
 def button_bail_function(game):
     actions.pay_bail(game)
+
+button_concede = Button((250,720), "GUI/images/buttons/button_concede_2.png", "GUI/images/buttons/button_concede_1.png", "GUI/images/buttons/button_concede_1.png")
+def button_concede_function(game):
+    actions.concede(game)
