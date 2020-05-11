@@ -1,6 +1,6 @@
 # Import all other classes
 import player
-import tile
+import Tile
 import board
 import display_token
 import display_tile

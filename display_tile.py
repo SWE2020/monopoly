@@ -1,6 +1,6 @@
 import pygame
 import GUI
-import tile
+import Tile
 import actions
 
 def display_target_tile(game):

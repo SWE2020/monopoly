@@ -1,7 +1,7 @@
 import json
 import pygame
 
-import tile
+import Tile
 import GUI
 import die
 import display_token

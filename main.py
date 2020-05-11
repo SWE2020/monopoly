@@ -2,7 +2,7 @@ import pygame
 from game import Game
 import buttons
 import GUI
-import tile
+import Tile
 import time
 import bidder
 import player
