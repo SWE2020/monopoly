@@ -1,5 +1,5 @@
 import json
-from tile import *
+from Tile import *
 
 """
 Reads the JSON file named "CardData.json"

@@ -7,6 +7,8 @@ import time
 import bidder
 import player
 import actions
+import random
+import Card
 pygame.init()
 
 def main():

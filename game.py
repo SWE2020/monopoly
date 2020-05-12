@@ -7,6 +7,10 @@ import pygame
 import clock
 import display_token
 import display_tile
+from Deck import *
+from bank import *
+from Card import *
+from read_json import *
 
 class Game:
 
