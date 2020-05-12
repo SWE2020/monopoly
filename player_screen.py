@@ -36,6 +36,12 @@ def display_player_screen(game):
             mortgage_image.set_alpha(255)
             display.blit(mortgage_image, (x-16,y))
 
+    jail_card_image = pygame.image.load("GUI/images/card_images/card16.png")
+    jail_card_image.set_alpha(35)
+    if current_player.jail_card:
+            jail_card_image.set_alpha(255)
+    display.blit(GUI.rescale(jail_card_image,0.21), (700, 362))
+
 
 
 

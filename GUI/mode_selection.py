@@ -15,6 +15,9 @@ def mode_select():
     full_button = Button((180,140), "GUI/images/buttons/button_full_game_2.png", "GUI/images/buttons/button_full_game_1.png", "GUI/images/buttons/button_full_game_1.png")
     abridged_button = Button((520,140), "GUI/images/buttons/button_abridged_game_2.png", "GUI/images/buttons/button_abridged_game_1.png", "GUI/images/buttons/button_abridged_game_1.png")
 
+    box1 = InputBox(400, 170, 270, 40)
+    box1.text = "0:10:00"
+
     intro = True
     while intro:
         for event in pygame.event.get():
@@ -23,11 +26,13 @@ def mode_select():
                 quit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if full_button.over():
-                        return "Full"
+                        return ("Full", box1.text)
                 if abridged_button.over():
-                        return "Abridged"
+                        return ("Abridged", box1.text)
+            box1.handle_event(event)
 
         gamedisplay.blit(background, (-920, -680))
         full_button.show(gamedisplay)
         abridged_button.show(gamedisplay)
+        box1.draw(gamedisplay)
         pygame.display.update()

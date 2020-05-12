@@ -36,8 +36,17 @@ class Button:
         # clicked
         self.clicked = False
 
+        #mode
+        self._mode = 0
+
     def info(self):
         print(self.coordinates, " image: ", self.image)
+
+    def mode_switch(self):
+        if self._mode == 0:
+            self._mode = 1
+        else:
+            self._mode = 0
 
     def show(self, display):
         if not self.clicked:
@@ -50,6 +59,12 @@ class Button:
         else:
             # clicked image
             display.blit(self.image3, self.rect)
+
+    def show2(self, display):
+        if self._mode == 0:
+            display.blit(self.image1, self.rect)
+        else:
+            display.blit(self.image2, self.rect)
 
     def over(self):
         x,y = pygame.mouse.get_pos()

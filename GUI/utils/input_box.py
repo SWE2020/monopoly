@@ -33,7 +33,6 @@ class InputBox:
         if event.type == pg.KEYDOWN:
             if self.active:
                 if event.key == pg.K_RETURN:
-                    print(self.text)
                     self.text = ''
                 elif event.key == pg.K_BACKSPACE:
                     self.text = self.text[:-1]
@@ -41,6 +40,10 @@ class InputBox:
                     self.text += event.unicode
                 # Re-render the text.
                 self.txt_surface = FONT.render(self.text, True, self.color)
+
+    def box_render(self):
+        self.txt_surface = FONT.render(self.text, True, self.color)
+
 
     def update(self):
         # Resize the box if the text is too long.

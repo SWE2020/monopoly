@@ -14,7 +14,6 @@ def display_target_tile(game):
 
     # if the mouse is currently on a tile
     for (target_index, rect) in enumerate(tile_rects):
-
         if rect.collidepoint(x,y):
 
             # background
@@ -49,16 +48,28 @@ def display_target_tile(game):
                 house_text.show(display)
                 hotel_text.show(display)
 
-                info1 = "Click on a tile to build a house on it."
+                info1 = "Click on the tile to build a house."
                 info2 = "If you already have 4 houses, it will build a hotel."
-                info3 = "Shift-Click on a tile to mortgage that property."
-                info1_text = GUI.GameText((952, 680), info1, (40,40,40), 17)
-                info2_text = GUI.GameText((952, 700), info2, (40,40,40), 17)
-                info3_text = GUI.GameText((952, 720), info3, (40,40,40), 17)
+                info3 = "Press D to demolish a single house."
+                info4 = "Press M to mortgage this property."
+                info5 = "Press U to un-mortgage this property."
+                info6 = "Press S to sell this property to the bank."
+
+                y_pos = 600
+
+                info1_text = GUI.GameText((952, y_pos), info1, (40,40,40), 17)
+                info2_text = GUI.GameText((952, y_pos + 1*20), info2, (40,40,40), 17)
+                info3_text = GUI.GameText((952, y_pos + 2*20), info3, (40,40,40), 17)
+                info4_text = GUI.GameText((952, y_pos + 3*20), info4, (40,40,40), 17)
+                info5_text = GUI.GameText((952, y_pos + 4*20), info5, (40,40,40), 17)
+                info6_text = GUI.GameText((952, y_pos + 5*20), info6, (40,40,40), 17)
 
                 info1_text.show(display)
                 info2_text.show(display)
                 info3_text.show(display)
+                info4_text.show(display)
+                info5_text.show(display)
+                info6_text.show(display)
 
             if target_tile._position == 20:
                 free_park_string = "Amount Gathered: " + str(game._free_parking) + "£ "
@@ -68,6 +79,7 @@ def display_target_tile(game):
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     actions.build(game, target_tile)
+                    print(x,y)
 
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_m:

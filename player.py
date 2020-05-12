@@ -13,9 +13,13 @@ class Player:
         self.hasWon = False
         self.isBankrupt = False
         self.inJail = False
+        self.jail_card = False
 
         self._passed_go_once = False
         self._double_counter = 0
+
+        self._ai = False
+
         jailTimeCount = 0
 
     def getPlayerName(self):
@@ -88,6 +92,10 @@ class Player:
     def has_no_cash(self):
         return self.getBankBalance() < 0
 
+    def add_jail_free_card(self):
+        self.jail_card = True
+
+
     #add a property to the array of properties owned
     def addPropertyOwned(self, prop):
         self.propertiesOwned.append(prop)
@@ -118,11 +126,3 @@ class Player:
             self.subtractFromBankBalance(price)
             property.addHotel()
             return true
-
-
-class AI(Player):
-        def __init__(self, name, token):
-            super().__init__(name, token)
-
-        def avoid_bankruptcy(self):
-            pass

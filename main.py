@@ -6,7 +6,10 @@ import tile
 import time
 import bidder
 import player
+import ai
 import actions
+import random
+import card
 pygame.init()
 
 def main():
@@ -14,25 +17,12 @@ def main():
     game = Game()
     board = game.get_board()
 
-    props = [1,3,6,8,9,11,12,13,14,15,16,18,19,21,23,24]
-    ege = game._players[0]
-    for prop in props:
-        ege.propertiesOwned.append(board.get_tile_at(prop))
-        board.get_tile_at(prop)._owner = ege
-
-    kingsley = game._players[1]
-    evan = game._players[2]
-    evan.propertiesOwned.append(board.get_tile_at(39))
-    board.get_tile_at(39)._owner = evan
-    evan.setBankBalance(20000)
-
-
     # iterate over players
     while not game.is_over():
         # do this while the turn is still going on
         while game.get_turns().status():
-            if AI_check(game):
-                break;
+            if game.current_player()._ai:
+                game.current_player().act(game)
             else:
                 rolling_phase(game)
                 action_phase(game)
@@ -43,22 +33,34 @@ def main():
         if game.get_turns()._go_again:
             game.get_turns().go_again()
 
+# add ai jail
+# add ai bidding
+
 def jail_phase(game):
     board = game.get_board()
     display = board.get_display()
     current_player = game.get_turns().current()
     bailed = False
+
     while True:
+
+        game.draw()
+        if current_player.jail_card:
+            card.display_jail_card(display)
+
+        buttons.button_bail.show(display)
+        pygame.display.update()
+
         for event in pygame.event.get():
             check_quit(event)
             check_concede(event, game)
+            x,y = pygame.mouse.get_pos()
             if event.type == pygame.MOUSEBUTTONDOWN and buttons.button_bail.over():
                 buttons.button_bail_function(game)
                 return "End Bail Phase"
-
-        game.draw()
-        buttons.button_bail.show(display)
-        pygame.display.update()
+            if event.type == pygame.MOUSEBUTTONDOWN and card.JAIL_CARD_RECT.collidepoint(x,y):
+                actions.use_jail_card(game)
+                return "Used Card"
 
 def rolling_phase(game):
     board = game.get_board()
@@ -107,9 +109,12 @@ def action_phase(game):
                 mode = 0
                 buttons.button_end_turn.show(display)
             # No one owns the current tile
-            elif current_tile._owner.getPlayerName() == "The Bank":
+            elif current_tile._owner.getPlayerName() == "The Bank" and current_player._passed_go_once:
                 mode = 1
                 buttons.button_buy.show(display)
+                buttons.button_end_turn.show(display)
+            elif current_tile._owner.getPlayerName() == "The Bank" and not current_player._passed_go_once:
+                mode = 0
                 buttons.button_end_turn.show(display)
             else:
                 mode = 2
@@ -174,13 +179,6 @@ def check_concede(event, game):
     if event.type == pygame.MOUSEBUTTONDOWN:
         if buttons.button_concede.over():
             buttons.button_concede_function(game)
-
-def AI_check(game):
-    if type(game.current_player) == player.AI:
-        print(current_player, " is ai")
-        # current_player.act()
-
-    return False
 
 if __name__ == '__main__':
     main()

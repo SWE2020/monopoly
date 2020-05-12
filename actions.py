@@ -5,6 +5,7 @@ import board
 import display_token
 import display_tile
 import bidder
+import time
 
 import pygame
 import GUI
@@ -20,7 +21,6 @@ def pay_rent(game):
 
         if rent > current_player.getBankBalance():
                 bankrupt(game)
-
 
         #print(current_player.getPlayerName(), " owner: ", owner.getPlayerName(), "tile: ", current_tile._name, "tile._position: ", current_tile._position , "amount: ", amount)
         if owner.inJail == False and current_tile._mortgaged == False:
@@ -45,6 +45,7 @@ def move(player, distance, game):
                 * A full lap around the board => invoke the GO function
                 * New position is GO TO JAIL => GO TO JAIL
         """
+        display = game.get_board().get_display()
         num_tiles = 40
         new_position = player.position + distance
 
@@ -71,6 +72,58 @@ def move(player, distance, game):
         TAX2 = 38
         if new_position == TAX1 or new_position == TAX2:
                 pay_tax(game)
+
+        OPP_KNOCKS = [7,22,36]
+        if new_position in OPP_KNOCKS:
+                display_token.display_token(game)
+                display_tile.display_current_tile(game)
+                card_drawn = game._pot_luck.draw()
+                card_drawn.display_card(display)
+                pygame.display.update()
+                time.sleep(6)
+
+                card_drawn.perform_action()
+
+        POT_LUCK = [2,17,33]
+        if new_position in POT_LUCK:
+                display_token.display_token(game)
+                display_tile.display_current_tile(game)
+                card_drawn = game._pot_luck.draw()
+                card_drawn.display_card(display)
+                pygame.display.update()
+                time.sleep(4)
+
+                card_drawn.perform_action()
+
+
+
+def teleport(player, new_position):
+        """
+        Use this for movement cards.
+        """
+        #check if the player has to complete a full lap around the board
+        if player.position >= new_position:
+                player._passed_go_once = True
+                GO(player)
+
+        player.position = new_position
+
+        # check GO TO JAIL
+        GO_TO_JAIL = 30
+        if new_position == GO_TO_JAIL:
+                go_to_jail(game)
+
+        # check FREE PARK
+        FREE_PARK = 20
+        if new_position == FREE_PARK:
+                free_park_collect(game)
+
+        # check TAX
+        TAX1 = 4
+        TAX2 = 38
+        if new_position == TAX1 or new_position == TAX2:
+                pay_tax(game)
+
 
 def roll_dice(game):
         """
@@ -288,12 +341,15 @@ def end_turn(game, bought_something):
                 current_position = current_player.getPosition()
                 current_tile = game.get_board().get_tile_at(current_position)
 
-                prop_bidder = bidder.Bidder(game)
-                max_bidder, max_bid = prop_bidder.bid_all()
+                if current_player._passed_go_once:
+                        prop_bidder = bidder.Bidder(game)
+                        max_bidder, max_bid = prop_bidder.bid_all()
 
-                max_bidder.removeBankBalance(max_bid)
-                max_bidder.addPropertyOwned(current_tile)
-                current_tile._owner = max_bidder
+                        max_bidder.removeBankBalance(max_bid)
+                        max_bidder.addPropertyOwned(current_tile)
+                        current_tile._owner = max_bidder
+                else:
+                        return None
 
 
 def bankrupt(game):
@@ -359,3 +415,7 @@ def unmortgage(game, target_tile):
                 unmortgage_cost = int(target_tile._cost / 2)
                 current_player.removeBankBalance(unmortgage_cost)
                 target_tile._mortgaged = False
+
+def use_jail_card(game):
+        game.current_player().jail_card = False
+        game.current_player().inJail = False
