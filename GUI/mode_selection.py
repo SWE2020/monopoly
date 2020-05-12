@@ -4,7 +4,6 @@ from GUI.utils import Button, GameText, InputBox
 def mode_select():
     # num of players
     num_players = 0
-    print("running mode_selection")
 
     # set up intro display
     DISPLAY_SIZE = (700, 280)
@@ -15,7 +14,7 @@ def mode_select():
     full_button = Button((180,140), "GUI/images/buttons/button_full_game_2.png", "GUI/images/buttons/button_full_game_1.png", "GUI/images/buttons/button_full_game_1.png")
     abridged_button = Button((520,140), "GUI/images/buttons/button_abridged_game_2.png", "GUI/images/buttons/button_abridged_game_1.png", "GUI/images/buttons/button_abridged_game_1.png")
 
-    box1 = InputBox(400, 170, 270, 40)
+    box1 = InputBox(385, 170, 270, 40)
     box1.text = "0:10:00"
 
     intro = True

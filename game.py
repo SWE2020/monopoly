@@ -20,7 +20,7 @@ class Game:
         self._players = []
         self._tokens = ["boot", "phone", "hat", "cat", "goblet", "spoon"]
 
-        self._MUSIC = False
+        self._MUSIC = True
         self._TESTING = False
 
         self.play_intro()

@@ -136,8 +136,6 @@ class RepairCard(Card):
 
     def perform_action(self):
 
-        print("*** performing card ", self._card_id , "***")
-
         # cost = 0
         house_count = 0
         hotel_count = 0
@@ -148,10 +146,8 @@ class RepairCard(Card):
             hotel_count += i.get_hotel_count()
             print(house_count, hotel_count)
 
-        print(self._house_payment)
 
         cost = (house_count * self._house_payment) + (hotel_count * self._hotel_payment)
-        print(cost)
 
 class MovementCard(Card):
 
@@ -160,9 +156,7 @@ class MovementCard(Card):
         super().__init__(card_id, card_type, description, action_data, game, image_path)
 
     def perform_action(self):
-        print("*** performing card ", self._card_id , "***")
 
-        print(self.action_data())
 
         if self._action_data[0] == "Direct":
             new_position = self.get_position_of_tile(self._action_data[1]) - 1
@@ -178,7 +172,7 @@ class MovementCard(Card):
             self._game.current_player().setPosition(new_position)
 
         else:
-            print("FF______________________________________________")
+            pass
 
         # new_position = action
 
