@@ -1,4 +1,6 @@
 from actions import *
+from player import Player
+from bank import Bank
 
 """
 Test: transfer_money
@@ -23,7 +25,7 @@ player1 = Player("Ege", "token1")
 player1.bankBalance = 1000
 bank1 = Bank(1000)
 
-GO(player1, bank1)
+GO(player1)
 
 print(bank1.balance == 800)
 print(player1.bankBalance == 1200)

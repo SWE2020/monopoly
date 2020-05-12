@@ -37,9 +37,9 @@ class Board:
         hotel = json_tile['1 hotel']
         image = json_tile['image']
         if can_be_bought:
-            t = tile.PropertyTile(position, name, group, cost, rent, rent1, rent2, rent3, rent4, hotel, can_be_bought, image)
+            t = Tile.PropertyTile(position, name, group, cost, rent, rent1, rent2, rent3, rent4, hotel, can_be_bought, image)
         else:
-            t = tile.ActionTile(position, name, action, can_be_bought, image)
+            t = Tile.ActionTile(position, name, action, can_be_bought, image)
         return t
 
     def get_tile_list(self):

@@ -1,5 +1,5 @@
 import unittest
-from Player import *
+from player import Player
 
 class BoardTestCases(unittest.TestCase):
 
@@ -17,7 +17,7 @@ class BoardTestCases(unittest.TestCase):
 
     def test_get_token_name(self):
         curr_token = "Boot"
-        self.player.assertEqual(self.player.getTokenName(), curr_token)
+        self.assertEqual(self.player.getTokenName(), curr_token)
 
     def test_set_token_name(self):
         new_token = "Thimble"
@@ -49,7 +49,7 @@ class BoardTestCases(unittest.TestCase):
 
     def test_set_position(self):
         new_position = 2
-        self.setPosition(new_position)
+        self.player.setPosition(new_position)
         self.assertEqual(self.player.getPosition(), new_position)
 
     def test_get_jailtime_count(self):
@@ -90,3 +90,6 @@ class BoardTestCases(unittest.TestCase):
         self.player.addPropertyOwned("Property 2")
         self.player.addPropertyOwned("Property 3")
         self.player.addPropertyOwned("Property 1")
+
+if __name__ == '__main__':
+    unittest.main()
