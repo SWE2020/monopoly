@@ -16,7 +16,7 @@ class Player:
 
         self._passed_go_once = False
         self._double_counter = 0
-        jailTimeCount = 0
+        self.jailTimeCount = 0
 
     def getPlayerName(self):
         return self.playerName
@@ -64,7 +64,7 @@ class Player:
         return self.inJail
 
     #sets a players jail status; true means in jail, false means not in jail
-    def setInJail(inJail):
+    def setInJail(self, inJail):
         self.inJail = inJail
 
     #pass true if player received a 'Get Out of Jail Free' card, pass false if the player used it
