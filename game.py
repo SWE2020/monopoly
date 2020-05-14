@@ -15,13 +15,13 @@ from read_json import *
 
 class Game:
 
-    def __init__(self):
+    def __init__(self, test=False):
 
         self._players = []
         self._tokens = ["boot", "phone", "hat", "cat", "goblet", "spoon"]
 
         self._MUSIC = True
-        self._TESTING = False
+        self._TESTING = test
 
         self.play_intro()
 
@@ -183,8 +183,6 @@ def create_game_decks(game):
     with open("CardData.json", "r") as read_file:
         data = json.load(read_file)
 
-    print(data)
-
     for portion in data:
         card_id = portion['Card_ID']
         subclass = portion["SubClassType"]
@@ -232,7 +230,7 @@ if __name__ == "__main__":
 
     player_list = [Player("Kaleb", "1"), Player("Geg", "!")]
 
-    game = Game()
+    game = Game(True)
     property_ = game.get_board().get_tile_at(1)
     print(property_.get_name())
 

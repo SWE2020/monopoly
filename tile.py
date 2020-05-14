@@ -12,7 +12,7 @@ class Tile:
             can_be_bought: A boolean that indicates whether this tile can be bought
             """
 
-    def __init__(self, position, name, can_be_bought, image):
+    def __init__(self, position, name, can_be_bought, image="GUI/images/property_cards/CS.png"):
         """ Creates an instance of the Tile object
             Should not be instantiated directly. """
 

@@ -1,7 +1,8 @@
 import unittest
+import testfixtures
 from testfixtures import compare
 import json
-from Tile import ActionTile, PropertyTile
+from tile import ActionTile, PropertyTile
 from board import *
 
 class BoardTestCases(unittest.TestCase):
