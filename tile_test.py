@@ -1,5 +1,6 @@
-from Tile import *
+from tile import *
 import unittest
+import pygame
 
 class TileTest(unittest.TestCase):
 
