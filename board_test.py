@@ -37,11 +37,13 @@ class BoardTestCases(unittest.TestCase):
         self.assertEqual(self.board.get_tile_at(2),sample_tile)
 
     #Test: create tile that can not be bought
+    #this will fail; was not able to find a way to compare tile objects
     def test_create_tile_not_bought(self):
         self.assertEqual(self.board.create_tile(self.json_object_action_tiles).__dict__, self.sample_action_tile.__dict__)
 
 
     #Test: create tile that can be bought
+    #this will fail; was not able to find a way to compare tile objects
     def test_create_tile_bought(self):
         self.assertEqual(self.board.create_tile(self.json_object_property_tiles),self.sample_property_tile)
 
